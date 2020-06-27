@@ -83,6 +83,11 @@ export default () => {
               <a>Private Page</a>
             </Link>
           </li>
+          <li className={styles.navItem}>
+            <Link href='/users'>
+              <a>Users Page</a>
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
