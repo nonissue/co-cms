@@ -33,6 +33,7 @@ function Users({ users }) {
 //     props: { users: json },
 //   };
 // };
+
 export const getStaticProps = async () => {
   const prisma = new PrismaClient();
   const res = await prisma.user.findMany({});
