@@ -1,0 +1,7 @@
+# Prisma Migrate lockfile v1
+
+20200617202334-setup
+20200617222921-add-created-at---updated-at
+20200617223823-add-created-at-to-tag
+20200627003851-add-published-field-to-post
+20200627004311-add-published-to-late

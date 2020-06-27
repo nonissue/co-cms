@@ -1,0 +1,40 @@
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean @default(false)
+  author    User?   @relation(fields: [authorId], references: [id])
+  authorId  Int?
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  posts Post[]
+  lates Late[]
+}
+
+model Late {
+  id       Int     @id @default(autoincrement())
+  title    String?
+  author   User?   @relation(fields: [authorId], references: [id])
+  authorId Int?
+  url      String?
+  tags     Tag[]   @relation(references: [id])
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  title String
+  lates Late[] @relation(references: [id])
+}
