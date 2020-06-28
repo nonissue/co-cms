@@ -5,3 +5,7 @@
 20200617223823-add-created-at-to-tag
 20200627003851-add-published-field-to-post
 20200627004311-add-published-to-late
+20200627223448-published----private
+20200627223635-author----owner
+20200628153018-rename-private----public-to-avoid-reserved-keyword
+20200628153248-public-private----shared

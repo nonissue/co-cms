@@ -1,6 +1,6 @@
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -35,7 +35,7 @@ model User {
 model Late {
   id          Int      @id @default(autoincrement())
   title       String?
-  shared      Boolean  @default(false)
+  public      Boolean  @default(false)
   url         String?
   tags        Tag[]    @relation(references: [id])
   description String?

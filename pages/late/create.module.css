@@ -1,0 +1,230 @@
+.create-late h1 {
+  font-size: 1.2em;
+}
+
+.form-error {
+  background: #f8e9e9;
+  border-left: 2px solid #bd271e;
+  padding: 12px 12px;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: #bd271e;
+}
+
+.form-inline-error {
+  /* background: #f8e9e9; */
+  /* border-left: 2px solid #bd271e; */
+  /* padding: 12px 12px; */
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  color: #bd271e;
+}
+
+.create-late button {
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: none;
+  background-origin: padding-box;
+  background-position: 0% 0%;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-source: none;
+  border-image-width: 1;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border: 1px solid rgb(0, 107, 180);
+  box-shadow: rgba(54, 97, 126, 0.3) 0px 2px 2px -1px;
+  box-sizing: border-box;
+  color: rgb(0, 107, 180);
+  cursor: pointer;
+  display: block;
+  font-family: 'Inter UI', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  font-size: 16px;
+  font-weight: 400;
+  height: 40px;
+  letter-spacing: -0.08px;
+  line-height: 24px;
+  margin: 0;
+  max-width: 100%;
+  min-width: 112px;
+  outline-color: rgb(0, 107, 180);
+  outline-style: none;
+  outline-width: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  scrollbar-color: rgba(105, 112, 125, 0.5) rgba(0, 0, 0, 0);
+  text-align: center;
+  text-decoration: rgb(0, 107, 180);
+  text-decoration-color: rgb(0, 107, 180);
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  text-decoration-thickness: auto;
+  transition-delay: 0s;
+  transition-duration: 0.25s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  -moz-appearance: none;
+}
+
+.create-late button:hover {
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgba(0, 107, 180, 0.1);
+  background-image: none;
+  background-origin: padding-box;
+  background-position: 0% 0%;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto;
+  border-radius: 4px;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-source: none;
+  border-image-width: 1;
+  border: 1px solid rgb(0, 107, 180);
+
+  box-shadow: rgba(54, 97, 126, 0.298) 0px 2.03771px 2.11312px -0.981147px,
+    rgba(54, 97, 126, 0.004) 0px 0.0377065px 0.0377065px -0.0188532px;
+  box-sizing: border-box;
+  color: rgb(0, 107, 180);
+  cursor: pointer;
+  display: block;
+  font-family: 'Inter UI', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  font-kerning: normal;
+  font-size: 16px;
+  font-weight: 400;
+  height: 40px;
+  letter-spacing: -0.08px;
+  line-height: 24px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  max-width: 100%;
+  min-width: 112px;
+  outline-color: rgb(0, 107, 180);
+  outline-style: none;
+  outline-width: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  scrollbar-color: rgba(105, 112, 125, 0.5) rgba(0, 0, 0, 0);
+  text-align: center;
+  text-decoration: underline rgb(0, 107, 180);
+  text-decoration-color: rgb(0, 107, 180);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: auto;
+  transition-delay: 0s;
+  transition-duration: 0.25s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transform: translateY(-1px);
+  vertical-align: middle;
+  white-space: nowrap;
+  -moz-appearance: none;
+}
+
+.form-group-row {
+  margin-top: 16px;
+}
+
+/* background-color: rgb(251, 252, 253); */
+.create-late label {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #1a1c21;
+  font-weight: 600;
+  display: inline-block;
+  -webkit-transition: all 150ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+  transition: all 150ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+}
+
+.create-late input {
+  background: rgb(251, 252, 253);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-top-color: rgb(52, 55, 65);
+  border: 0;
+  border-radius: 0px;
+  box-shadow: rgba(15, 39, 118, 0.1) 0px 0px 0px 1px inset;
+  box-sizing: border-box;
+  color: rgb(52, 55, 65);
+  font-family: 'Inter UI', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  font-kerning: normal;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  letter-spacing: -0.07px;
+  line-height: 17.5px;
+  margin: 0;
+  max-width: 400px;
+  padding: 12px;
+  scrollbar-color: rgba(105, 112, 125, 0.5) rgba(0, 0, 0, 0);
+  transition-delay: 0s, 0s, 0s, 0s, 0s;
+  transition-duration: 0.15s, 0.15s, 0.15s, 0.15s, 0.15s;
+  transition-property: box-shadow, background-image, background-size, box-shadow;
+  transition-timing-function: ease-in, ease-in, ease-in, ease-in, ease-in;
+  width: 266px;
+  transition: box-shadow 150ms ease-in, background-image 150ms ease-in,
+    background-size 150ms ease-in, background-color 150ms ease-in,
+    -webkit-box-shadow 150ms ease-in;
+
+  box-shadow: 0 1px 1px -1px rgba(152, 162, 179, 0.2),
+    0 3px 2px -2px rgba(152, 162, 179, 0.2),
+    inset 0 0 0 1px rgba(15, 39, 118, 0.1);
+}
+
+.create-late input:focus {
+  background-size: 100% 100%;
+  background-color: white;
+  outline: none;
+  background-image: linear-gradient(
+    to top,
+    #006bb4,
+    #006bb4 2px,
+    transparent 2px,
+    transparent 100%
+  );
+  box-shadow: inset 0 0 0 1px rgba(15, 39, 118, 0.1);
+  box-shadow: 0 1px 1px -1px rgba(152, 162, 179, 0.2),
+    0 4px 4px -2px rgba(152, 162, 179, 0.2),
+    inset 0 0 0 1px rgba(15, 39, 118, 0.1);
+}
+
+.form-help-text {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  padding-top: 4px;
+  color: #69707d;
+}
+
+.form-control-row {
+}
+
+.button-row {
+}

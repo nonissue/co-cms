@@ -2,19 +2,18 @@ import { PrismaClient } from '@prisma/client';
 import { useSession } from 'next-auth/client';
 import Layout from '../components/layout';
 
-async function getUsers() {
-  const allUsers = await prisma.user.findMany({ include: { lates: true } });
+// async function getLates() {
+//   const allLates = await prisma.late.findMany({ include: { lates: true } });
 
-  console.dir(allUsers, { depth: null });
-}
+//   console.dir(allLates, { depth: null });
+// }
 
 // Receives prisma users with lates
 // parse them from json
 // Map over the resulting users
-function Users({ users }) {
+function Lates({ lates }) {
   const [session, loading] = useSession();
-  const userList = JSON.parse(users);
-  const test = console.log(userList);
+  const latesList = JSON.parse(lates);
 
   return (
     <Layout>
@@ -22,13 +21,14 @@ function Users({ users }) {
         <h1>Please sign in!</h1>
       ) : (
         <>
-          <h1> Users</h1>
-          {userList.map((user) => {
+          <h1> Lates</h1>
+          {latesList.map((late) => {
             return (
-              <div key={user.id}>
-                <h3>{user.name}</h3>
-                <h4>{user.email}</h4>
-                {console.log(user.lates)}
+              <div key={late.id}>
+                <h3>{late.title}</h3>
+                <h5>by {late.owner.name}</h5>
+                <code>{late.url}</code>
+                {console.log(late.lates)}
               </div>
             );
           })}
@@ -44,14 +44,13 @@ function Users({ users }) {
 
 // Does the returned array need to be json? Can we avoid converting it to JSON and then back?
 export const getStaticProps = async () => {
-  const [session, loading] = useSession();
   const prisma = new PrismaClient();
-  const res = await prisma.user.findMany({ include: { lates: true } });
+  const res = await prisma.late.findMany({ include: { owner: true } });
   const json = await JSON.stringify(res);
 
   return {
-    props: { users: json },
+    props: { lates: json },
   };
 };
 
-export default Users;
+export default Lates;

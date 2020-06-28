@@ -75,12 +75,22 @@ export default () => {
           </li>
           <li className={styles.navItem}>
             <Link href='/ssr'>
-              <a>Server Side Rendering</a>
+              <a>SSR</a>
             </Link>
           </li>
           <li className={styles.navItem}>
             <Link href='/private'>
               <a>Private Page</a>
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link href='/lates'>
+              <a>Lates</a>
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link href='/late/create'>
+              <a>Create</a>
             </Link>
           </li>
           <li className={styles.navItem}>
