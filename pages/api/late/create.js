@@ -1,10 +1,17 @@
 import { PrismaClient } from '@prisma/client';
+import { getSession } from 'next-auth/client';
 
 // I think if it's defined outside of scope of function, it can be cached?
 const prisma = new PrismaClient();
 
 export default async function create(req, res) {
   const { title, url, shared } = await req.body;
+
+  const test = await getSession({ req });
+  // const {sesh = await fetch('http://localhost:3000/api/auth/session');
+  // console.log(sesh);
+  console.log(test);
+  // console.log(req);
 
   // Add user auth verification
 

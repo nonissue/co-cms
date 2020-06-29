@@ -9,10 +9,12 @@ import styles from './private.module.css';
 export default () => {
   const [session, loading] = useSession();
 
+  console.log(session);
+
   return (
     <Layout>
       <div className={styles.signedInStatus}>
-        <p
+        <div
           className={`nojs-show ${
             !session && loading ? styles.loading : styles.loaded
           }`}
@@ -58,7 +60,7 @@ export default () => {
               </a>
             </>
           )}
-        </p>
+        </div>
       </div>
     </Layout>
   );
