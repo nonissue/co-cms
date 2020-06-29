@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { useSession } from 'next-auth/client';
+import { useSession, getSession } from 'next-auth/client';
 import Layout from '../components/layout';
 
 async function getUsers() {
@@ -44,7 +44,8 @@ function Users({ users }) {
 
 // Does the returned array need to be json? Can we avoid converting it to JSON and then back?
 export const getStaticProps = async () => {
-  const [session, loading] = useSession();
+  // const [session, loading] = useSession();
+  // const user = await getSession(context);
   const prisma = new PrismaClient();
   const res = await prisma.user.findMany({ include: { lates: true } });
   const json = await JSON.stringify(res);
