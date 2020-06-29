@@ -43,6 +43,7 @@ function Lates({ lates }) {
 // Converts it to JSON before returning
 
 // Does the returned array need to be json? Can we avoid converting it to JSON and then back?
+// Also, doesn't get rerendered on change online
 export const getStaticProps = async () => {
   const prisma = new PrismaClient();
   const res = await prisma.late.findMany({ include: { owner: true } });
