@@ -1,6 +1,10 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 
+console.log(
+  `${process.env.SITE}  / ${process.env.GITHUB_ID} ${process.env.GITHUB_SECRET}`
+);
+
 const options = {
   site: process.env.SITE || 'http://localhost:3000',
 

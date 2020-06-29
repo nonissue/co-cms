@@ -61,7 +61,7 @@ function Create() {
                 }
               />
             </div>
-            <div class={styles['form-help-text']}>
+            <div className={styles['form-help-text']}>
               Enter the Late's title (optional)
             </div>
           </div>
