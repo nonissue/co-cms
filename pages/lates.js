@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
-import { useSession } from 'next-auth/client';
+import { useSession, getSession } from 'next-auth/client';
 import Layout from '../components/layout';
+import styles from './lates.module.css';
 
 // async function getLates() {
 //   const allLates = await prisma.late.findMany({ include: { lates: true } });
@@ -24,10 +25,14 @@ function Lates({ lates }) {
           <h1> Lates</h1>
           {latesList.map((late) => {
             return (
-              <div key={late.id}>
-                <h3>{late.title}</h3>
-                <h5>by {late.owner.name}</h5>
-                <code>{late.url}</code>
+              <div className={styles['lates-item']} key={late.id}>
+                <div>
+                  <h1>{late.title}</h1>
+                  <p>&nbsp;&nbsp;— by {late.owner.name}</p>
+                </div>
+                <div>
+                  <code>{late.url}</code>
+                </div>
                 {console.log(late.lates)}
               </div>
             );
@@ -44,10 +49,26 @@ function Lates({ lates }) {
 
 // Does the returned array need to be json? Can we avoid converting it to JSON and then back?
 // Also, doesn't get rerendered on change online
-export const getStaticProps = async () => {
+// export const getStaticProps = async () => {
+//   const prisma = new PrismaClient();
+//   const res = await prisma.late.findMany({ include: { owner: true } });
+//   const json = await JSON.stringify(res);
+
+//   return {
+//     props: { lates: json },
+//   };
+// };xres
+
+export const getServerSideProps = async (context) => {
+  const test = await getSession(context);
+
+  console.log(test);
+
   const prisma = new PrismaClient();
-  const res = await prisma.late.findMany({ include: { owner: true } });
-  const json = await JSON.stringify(res);
+  const latesResponse = await prisma.late.findMany({
+    include: { owner: true },
+  });
+  const json = await JSON.stringify(latesResponse);
 
   return {
     props: { lates: json },

@@ -1,0 +1,51 @@
+.lates-item {
+  /* border: 1px solid #ccc; */
+  border-bottom: 1px solid #e6e3e3;
+
+  /* border-left-color: rgba(0, 0, 0, 0.05); */
+  padding: 1rem 0;
+  box-shadow: rgba(54, 97, 126, 0.01) 0px 2px 3px -1px;
+  margin-bottom: 0.5rem;
+  border-radius: 0px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.lates-item h1,
+.lates-item p {
+  margin: 0;
+  text-align: left;
+}
+.lates-item h1 {
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  font-style: italic;
+  color: rgb(0, 107, 180);
+}
+.lates-item p {
+  color: rgba(54, 97, 126, 1);
+  margin: 0.5rem;
+}
+.lates-item code {
+  /* color: red; */
+  text-align: right;
+  color: hsl(204, 95%, 40%);
+  font-size: 1.3rem;
+  /* border: 1px solid red; */
+  /* width: 100%; */
+  display: block;
+  font-weight: 300;
+
+  text-decoration: underline;
+}
+.lates-item > * {
+  width: 50%;
+  /* background: red; */
+}
+
+.lates-item p {
+  font-size: 0.8rem;
+}
