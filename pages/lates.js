@@ -62,12 +62,13 @@ function Lates({ lates }) {
 export const getServerSideProps = async (context) => {
   const test = await getSession(context);
 
-  console.log(test);
+  // console.log(context);
 
   const prisma = new PrismaClient();
   const latesResponse = await prisma.late.findMany({
     include: { owner: true },
   });
+
   const json = await JSON.stringify(latesResponse);
 
   return {
