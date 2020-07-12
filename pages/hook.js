@@ -30,9 +30,15 @@ export default () => {
         )}
         {session && (
           <>
-            Signed in as <b>{session.user.email || session.user.name}</b> <br />
-            <a href='/api/auth/signout'>Sign out</a>
-            <h3>This is some top secret info</h3>
+            <hr />
+            <h3>Status</h3>
+            <p>
+              Signed in as <b>{session.user.email || session.user.name}</b>
+              &nbsp;&nbsp; <a href='/api/auth/signout'>Sign out</a>
+            </p>
+
+            <p>This is some top secret info</p>
+            <hr />
           </>
         )}
       </p>

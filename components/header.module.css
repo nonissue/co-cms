@@ -104,7 +104,8 @@
   padding: 0;
   list-style: none;
   /* margin-left: 2rem; */
-  padding: 2rem;
+  /* padding: 2rem; */
+  padding: 1rem 0;
   border-bottom: 1px solid #ccc;
 }
 
