@@ -59,7 +59,7 @@ function Create() {
     <Layout>
       {/* Ugly nested ternary, fix? */}
       {loading ? (
-        'Loading...'
+        ''
       ) : !session ? (
         'Please sign in'
       ) : (
