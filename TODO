@@ -12,14 +12,27 @@ Conceptually:
   
 
 API: 
-  
+  ☐ Implement all crud operations
+  ☐ All in [id].js?
+    ☐ /api/late/[id] -> returns specified late
+    ☐ /api/late/[id] METHOD: PUT -> updates
+    ☐ /api/late/[id] METHOD: DELETE -> deletes
 
 Frontend:
   ☐ Link from lates list to individual late
     ☐ Route by ID? Since url is the only known property, seems safest, slugs won't work since title optional
   ☐ Clean up styles
   ☐ Fix header rendering flash (only on FF?)
-    ☐ Seems to happen on multiple pages (not just create)
-    ☐ next auth example doesn't have issue
-    ☐ neither does co-cms commit `5d78324bfb18ed0f5fdb2dfca6c362ce83482bdf`
-    
+    ✔ Seems to happen on multiple pages (not just create) @done(20-07-11 22:29)
+    ✔ next auth example doesn't have issue @done(20-07-11 22:29)
+    ✔ neither does co-cms commit `5d78324bfb18ed0f5fdb2dfca6c362ce83482bdf` @done(20-07-11 22:29)
+    ☐ DOESN'T HAPPEN WHEN DEPLOYED @critical 
+  ☐ Fix header offset height (slightly too short, when rendering header height is increased)
+    ☐ Only FF?
+  ☐ Export static paths?
+
+Tests:
+  ☐ https://github.com/drkgrntt/papyr-cms/tree/master/src/test
+
+Resources:
+  ☐ https://github.com/drkgrntt/papyr-cms/blob/master/src/pages/api/posts/%5Bid%5D.js
