@@ -68,19 +68,24 @@ export default () => {
               <a>Home</a>
             </Link>
           </li>
-          <li className={styles.navItem}>
+          {/* <li className={styles.navItem}>
             <Link href='/hook'>
               <a>React Hook</a>
             </Link>
-          </li>
+          </li> */}
           <li className={styles.navItem}>
             <Link href='/ssr'>
               <a>SSR</a>
             </Link>
           </li>
-          <li className={styles.navItem}>
+          {/* <li className={styles.navItem}>
             <Link href='/private'>
               <a>Private Page</a>
+            </Link>
+          </li> */}
+          <li className={styles.navItem}>
+            <Link href='/late/1'>
+              <a>Single late</a>
             </Link>
           </li>
           <li className={styles.navItem}>
