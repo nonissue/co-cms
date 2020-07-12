@@ -5,7 +5,7 @@ body {
   padding: 0 1rem 1rem 1rem;
   max-width: 680px;
   margin: 0 auto;
-  color: #333;
+  color: #343741;
 }
 
 li,
@@ -17,6 +17,7 @@ a {
   font-weight: 500;
   text-decoration: none;
   color: #4299e1;
+  color: #006bb4;
 }
 
 hr {

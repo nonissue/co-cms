@@ -17,3 +17,9 @@ API:
 Frontend:
   ☐ Link from lates list to individual late
     ☐ Route by ID? Since url is the only known property, seems safest, slugs won't work since title optional
+  ☐ Clean up styles
+  ☐ Fix header rendering flash (only on FF?)
+    ☐ Seems to happen on multiple pages (not just create)
+    ☐ next auth example doesn't have issue
+    ☐ neither does co-cms commit `5d78324bfb18ed0f5fdb2dfca6c362ce83482bdf`
+    
