@@ -34,14 +34,27 @@ function Create() {
       Router.push('/lates');
     } catch (error) {
       console.error(error);
-      setLateData({ ...lateData, error: error.message });
+      if (error.message === 'URL is required') {
+        setLateData({
+          ...lateData,
+          error: { message: error.message, field: 'URL' },
+        });
+      } else if (error.message === 'Title is required') {
+        setLateData({
+          ...lateData,
+          error: { message: error.message, field: 'Title' },
+        });
+      } else {
+        setLateData({ ...lateData, error: error.message });
+      }
     }
   }
 
   return (
     <Layout>
+      {console.log(lateData.error)}
       <div className={styles['create-late']}>
-        <h1>Create Post</h1>
+        <h1>Create Late</h1>
         {/* <div className={styles['form-error']}>
           {lateData.error &&&& `Error: ${lateData.error}`}
         </div> */}
@@ -54,6 +67,12 @@ function Create() {
                 id='title'
                 name='title'
                 value={lateData.title}
+                className={`${
+                  lateData.error?.field === 'Title' &&
+                  styles['form-invalid-input']
+                }
+                  ${styles['create-late-input']}
+                }`}
                 onChange={(event) =>
                   setLateData(
                     Object.assign({}, lateData, { title: event.target.value })
@@ -74,6 +93,12 @@ function Create() {
                 id='url'
                 name='url'
                 value={lateData.url}
+                className={`${
+                  lateData.error?.field === 'URL' &&
+                  styles['form-invalid-input']
+                }
+                  ${styles['create-late-input']}
+                }`}
                 onChange={(event) =>
                   setLateData(
                     Object.assign({}, lateData, { url: event.target.value })
@@ -84,7 +109,8 @@ function Create() {
             <div
               className={`${styles['form-help-text']} ${styles['form-inline-error']}`}
             >
-              {lateData.error ? (
+              {/* show the validation error for set amount of time? */}
+              {lateData.error?.field === 'URL' ? (
                 <div className={`${styles['form-inline-error']}`}>
                   This field is required
                 </div>

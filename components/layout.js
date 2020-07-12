@@ -5,6 +5,6 @@ export default ({ children }) => (
   <>
     <Header />
     <main>{children}</main>
-    <Footer />
+    {/* <Footer /> */}
   </>
 );

@@ -18,7 +18,13 @@ export default async function create(req, res) {
   let late;
   try {
     if (!url) {
+      // console.log('Throwing for missing url');
       throw new Error('URL is required');
+      // throw new Error('URL Missing');
+    }
+
+    if (url) {
+      throw new Error('Title is required');
     }
 
     // if (!ref) {
@@ -36,17 +42,15 @@ export default async function create(req, res) {
         },
       });
       console.log(late);
-    } catch (error) {
-      console.error('create-late error', error);
-      throw new Error('¯_(ツ)_/¯');
+    } catch (err) {
+      console.err('create-late error', err);
+      throw new Error('Other error');
     }
 
     // console.log(late);
 
     res.status(200).end();
-  } catch (error) {
-    console.log('error in outside try');
-    console.log(error);
-    res.status(400).send(error.message);
+  } catch (err) {
+    res.status(400).send(err.message);
   }
 }
