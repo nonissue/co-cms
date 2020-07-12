@@ -9,11 +9,11 @@ export default () => {
   const [session, loading] = useSession();
 
   return (
-    <header>
+    <header className={styles.header}>
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
-      <div className={styles.signedInStatus}>
+      {/* <div className={styles.signedInStatus}>
         <p
           className={`nojs-show ${
             !session && loading ? styles.loading : styles.loaded
@@ -37,7 +37,7 @@ export default () => {
             </>
           )}
           {session && (
-            <>
+            <div className={styles.user}>
               <span
                 style={{ backgroundImage: `url(${session.user.image})` }}
                 className={styles.avatar}
@@ -57,54 +57,87 @@ export default () => {
               >
                 Sign out
               </a>
-            </>
+            </div>
           )}
         </p>
+      </div> */}
+
+      <div className={`${styles['nav-bar-wrapper']} nojs-show`}>
+        <nav
+          className={`nojs-show ${
+            !session && loading ? styles.loading : styles.loaded
+          }
+          }`}
+        >
+          <div className={styles['nav-bar-left']}>
+            {session ? (
+              <span
+                style={{ backgroundImage: `url(${session.user.image})` }}
+                className={`${styles.avatar}`}
+              />
+            ) : (
+              <span></span>
+            )}
+            {/* {!session && ( */}
+
+            <ul
+              className={`${styles.navItems} ${
+                !session && loading ? styles.loading : styles.loaded
+              }`}
+            >
+              <li className={styles.navItem}>
+                <Link href='/'>
+                  <a>Home</a>
+                </Link>
+              </li>
+              <li className={styles.navItem}>
+                <Link href='/late/1'>
+                  <a>Single late</a>
+                </Link>
+              </li>
+              <li className={styles.navItem}>
+                <Link href='/lates'>
+                  <a>Lates</a>
+                </Link>
+              </li>
+              <li className={styles.navItem}>
+                <Link href='/late/create'>
+                  <a>Create</a>
+                </Link>
+              </li>
+              <li className={styles.navItem}>
+                <Link href='/users'>
+                  <a>Users Page</a>
+                </Link>
+              </li>
+            </ul>
+            {/* )} */}
+          </div>
+          {session ? (
+            <a
+              href={`/api/auth/signout`}
+              className={styles.button}
+              onClick={(e) => {
+                e.preventDefault();
+                signout();
+              }}
+            >
+              Sign out
+            </a>
+          ) : (
+            <a
+              href={`/api/auth/signin`}
+              className={styles.buttonPrimary}
+              onClick={(e) => {
+                e.preventDefault();
+                signin();
+              }}
+            >
+              Sign in
+            </a>
+          )}
+        </nav>
       </div>
-      <nav>
-        <ul className={styles.navItems}>
-          <li className={styles.navItem}>
-            <Link href='/'>
-              <a>Home</a>
-            </Link>
-          </li>
-          {/* <li className={styles.navItem}>
-            <Link href='/hook'>
-              <a>React Hook</a>
-            </Link>
-          </li> */}
-          <li className={styles.navItem}>
-            <Link href='/ssr'>
-              <a>SSR</a>
-            </Link>
-          </li>
-          {/* <li className={styles.navItem}>
-            <Link href='/private'>
-              <a>Private Page</a>
-            </Link>
-          </li> */}
-          <li className={styles.navItem}>
-            <Link href='/late/1'>
-              <a>Single late</a>
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href='/lates'>
-              <a>Lates</a>
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href='/late/create'>
-              <a>Create</a>
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href='/users'>
-              <a>Users Page</a>
-            </Link>
-          </li>
-        </ul>
-      </nav>
     </header>
   );
 };

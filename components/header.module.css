@@ -1,9 +1,10 @@
-/* Set min-height to avoid page reflow while session loading */
-.signedInStatus {
+.header {
+  min-height: 6rem;
   display: block;
-  min-height: 4rem;
   width: 100%;
 }
+
+/* Set min-height to avoid page reflow while session loading */
 
 .loading,
 .loaded {
@@ -11,74 +12,55 @@
   top: 0;
   opacity: 1;
   overflow: hidden;
-
-  /* border-radius: 0 0 0.6rem 0.6rem; */
-  /* background-color: red; */
-  padding: 0.6rem 1rem;
   padding: 2rem;
   margin: 0;
-  background-color: #f6f6f6;
-  /* border: 1px solid */
-  /* background-color: red; */
-  transition: all 0.2s ease-in-out;
-  box-shadow: rgba(54, 97, 126, 0.01) 0px 2px 3px -1px;
-  border: 1px solid #e6e3e3;
+  transition: all 0.25s ease-in-out;
+  /* box-shadow: rgba(54, 97, 126, 0.01) 0px 2px 3px -1px; */
 }
 
 .loading {
-  top: -2rem;
+  top: -4rem;
   opacity: 0;
 }
 
-.signedInText,
-.notSignedInText {
-  position: absolute;
-  padding-top: 0.8rem;
-  left: 1rem;
-  right: 7.4rem;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: inherit;
-  z-index: 1;
-  line-height: 1.3rem;
-}
-
-.signedInText {
-  padding-top: 0rem;
-  left: 6rem;
+.user {
+  /* display: flex; */
+  /* border: 1px solid red; */
+  /* justify-content: flex-end; */
 }
 
 .avatar {
   border-radius: 2rem;
-  float: left;
-  height: 2.8rem;
-  width: 2.8rem;
+  display: block;
+  height: 2.4rem;
+  width: 2.4rem;
   /* padding: 1rem; */
   background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
+  margin-right: 1.5rem;
 }
 
 .button,
 .buttonPrimary {
-  float: right;
-  margin-right: -0.4rem;
+  /* float: right; */
+  /* margin-right: -0.4rem; */
   font-weight: 500;
   border-radius: 0.3rem;
   cursor: pointer;
   font-size: 1rem;
   line-height: 1rem;
-  padding: 0.7rem 1.4rem;
+  padding: 0.5rem 0.7rem;
   position: relative;
   z-index: 10;
   box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.05),
-    inset 0 0.1rem 0.2rem rgba(255, 255, 255, 0.25),
+    inset 0 0.1rem 0.2rem rgba(255, 255, 255, 0.15),
     inset 0 -0.1rem 0.1rem rgba(0, 0, 0, 0.05);
   background-color: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(204, 204, 204, 0.7);
   color: #555;
   text-decoration: none;
+  transition: all 200ms ease-in-out;
 }
 
 .button:hover {
@@ -98,18 +80,57 @@
   box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.15),
     inset 0 0 5rem rgba(0, 0, 0, 0.2);
 }
+.nav-bar-wrapper {
+  min-height: 4rem;
+  /* border: 1px solid red; */
+  width: 100%;
+  display: block;
+  /* position: absolute; */
+  /* padding-top: 0.8rem; */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inherit;
+  z-index: 1;
+  line-height: 1.3rem;
+  border: 1px solid rgba(65, 78, 101, 0.3);
+  border-top: 0;
+  border-radius: 0 0px 6px 6px;
+}
+.header nav {
+  /* margin-bottom: 2rem; */
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  /* border-bottom: 1px solid #ccc; */
+  align-items: center;
+  padding: 1rem 1.5rem;
+  /* box-shadow: rgba(65, 78, 101, 0.05) 0px 24px 32px 0px,
+    rgba(65, 78, 101, 0.01) 0px 16px 16px 0px,
+    rgba(65, 78, 101, 0.01) 0px 8px 8px 0px,
+    rgba(65, 78, 101, 0.01) 0px 4px 4px 0px,
+    rgba(65, 78, 101, 0.02) 0px 2px 2px 0px; */
+}
+
+.nav-bar-left {
+  align-items: center;
+  display: flex;
+}
 
 .navItems {
-  margin-bottom: 2rem;
   padding: 0;
   list-style: none;
-  /* margin-left: 2rem; */
-  /* padding: 2rem; */
-  padding: 1rem 0;
-  border-bottom: 1px solid #ccc;
+  display: flex;
+  position: relative;
+}
+
+.navItems a {
+  font-weight: 600;
 }
 
 .navItem {
   display: inline-block;
   margin-right: 1rem;
+  /* display: flex; */
+  /* align-content: center; */
 }
