@@ -33,7 +33,7 @@ function Lates({ lates }) {
                 <div>
                   <code>{late.url}</code>
                 </div>
-                {console.log(late.lates)}
+                {/* {console.log(late.lates)} */}
               </div>
             );
           })}
@@ -59,7 +59,7 @@ function Lates({ lates }) {
 //   };
 // };xres
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const test = await getSession(context);
 
   // console.log(context);

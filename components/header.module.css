@@ -1,10 +1,9 @@
+/* Set min-height to avoid page reflow while session loading */
 .header {
   min-height: 6rem;
   display: block;
   width: 100%;
 }
-
-/* Set min-height to avoid page reflow while session loading */
 
 .loading,
 .loaded {
@@ -21,12 +20,6 @@
 .loading {
   top: -4rem;
   opacity: 0;
-}
-
-.user {
-  /* display: flex; */
-  /* border: 1px solid red; */
-  /* justify-content: flex-end; */
 }
 
 .avatar {
