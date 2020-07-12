@@ -10,3 +10,10 @@ https://www.codemochi.com/blog/2019-07-08-prisma-2-nextjs-docker
 Conceptually:
   ☐ How do we identify users if we use an auth provider like github?
   
+
+API: 
+  
+
+Frontend:
+  ☐ Link from lates list to individual late
+    ☐ Route by ID? Since url is the only known property, seems safest, slugs won't work since title optional
