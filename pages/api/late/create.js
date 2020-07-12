@@ -5,7 +5,7 @@ import { getSession } from 'next-auth/client';
 const prisma = new PrismaClient();
 
 export default async function create(req, res) {
-  const { title, url, shared } = await req.body;
+  const { title, url, shared, user } = await req.body;
 
   const test = await getSession({ req });
   // const {sesh = await fetch('http://localhost:3000/api/auth/session');
@@ -14,17 +14,15 @@ export default async function create(req, res) {
   // console.log(req);
 
   // Add user auth verification
-
   let late;
   try {
+    if (!user || !user.email) {
+      throw new Error('User is required');
+    }
     if (!url) {
       // console.log('Throwing for missing url');
       throw new Error('URL is required');
       // throw new Error('URL Missing');
-    }
-
-    if (url) {
-      throw new Error('Title is required');
     }
 
     // if (!ref) {
@@ -37,7 +35,7 @@ export default async function create(req, res) {
           title: title || 'untitled',
           url,
           owner: {
-            connect: { email: 'andy@nonissue.org' },
+            connect: { email: user.email },
           },
         },
       });
