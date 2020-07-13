@@ -106,10 +106,15 @@ export default () => {
                 </Link>
               </li>
               <li className={styles.navItem}>
+                <Link href='/modal'>
+                  <a>Modal</a>
+                </Link>
+              </li>
+              {/* <li className={styles.navItem}>
                 <Link href='/users'>
                   <a>Users Page</a>
                 </Link>
-              </li>
+              </li> */}
             </ul>
             {/* )} */}
           </div>

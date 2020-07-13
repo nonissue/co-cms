@@ -36,8 +36,6 @@
 
 .button,
 .buttonPrimary {
-  /* float: right; */
-  /* margin-right: -0.4rem; */
   font-weight: 500;
   border-radius: 0.3rem;
   cursor: pointer;
@@ -73,20 +71,18 @@
   box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.15),
     inset 0 0 5rem rgba(0, 0, 0, 0.2);
 }
+
 .nav-bar-wrapper {
-  min-height: 4rem;
-  /* border: 1px solid red; */
+  min-height: 4.5rem;
   width: 100%;
   display: block;
-  /* position: absolute; */
-  /* padding-top: 0.8rem; */
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   display: inherit;
   z-index: 1;
   line-height: 1.3rem;
-  border: 1px solid rgba(65, 78, 101, 0.3);
+  border: 1px solid rgba(65, 78, 101, 0.1);
   border-top: 0;
   border-radius: 0 0px 6px 6px;
 }
