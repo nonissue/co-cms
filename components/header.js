@@ -11,20 +11,29 @@ export default () => {
   const [session, loading] = useSession();
   const actionRef = useRef(null);
   const dropdownRef = useRef(null);
-  const [menuDropdown, toggleMenuDropdown] = useDropdown(
-    dropdownRef,
-    actionRef
-  );
-  const [coords, setCoords] = useState({});
+
   const updateDropdownCoords = (button) => {
     const rect = button.getBoundingClientRect();
     setCoords({
       left: rect.x, // add half the width of the button for centering
       top: rect.y + window.scrollY + rect.height, // add scrollY offset, as soon as getBountingClientRect takes on screen coords
     });
-
-    toggleMenuDropdown();
   };
+
+  const [menuDropdown, toggleMenuDropdown] = useDropdown(
+    dropdownRef,
+    actionRef
+  );
+
+  useEffect(() => {
+    window.addEventListener('resize', () =>
+      updateDropdownCoords(actionRef.current)
+    );
+
+    return () => window.removeEventListener('resize', () => actionRef.current);
+  }, []);
+
+  const [coords, setCoords] = useState({});
 
   return (
     <header className={styles.header}>
@@ -96,8 +105,6 @@ export default () => {
             ) : (
               <span></span>
             )}
-            {/* {!session && ( */}
-
             <ul
               className={`${styles.navItems} ${
                 !session && loading ? styles.loading : styles.loaded
@@ -115,12 +122,13 @@ export default () => {
                   // setOpen(!open);
                   console.log(e.target);
                   console.log(e.target.getBoundingClientRect());
+                  toggleMenuDropdown();
                 }}
                 // style={{ position: 'relative' }}
                 ref={actionRef}
                 style={{
                   border: `${
-                    menuDropdown ? '1px solid #DDEBF7' : '1px solid transparent'
+                    menuDropdown ? '1px solid #1070CA' : '1px solid transparent'
                   }`,
                   borderBottom: `${
                     menuDropdown ? '0px solid navy' : '0px solid white'
@@ -131,10 +139,11 @@ export default () => {
                         '0 0.15rem 0.3rem rgba(0, 0, 0, 0.1)'
                       : 'none'
                   }`,
+
                   width: '100px',
                 }}
               >
-                Dropdown ▼
+                Dropdown ✲
                 <div
                   ref={dropdownRef}
                   hidden={!menuDropdown}
@@ -149,7 +158,7 @@ export default () => {
                     // right: 0,
                     border: 'inherit',
                     borderTop: '0px',
-                    borderBottom: '2px solid #084B8A',
+                    borderBottom: '1px solid #084B8A',
                     lineHeight: '1.3rem',
                     // paddingLeft: '0.5em',
                     paddingBottom: '0.5em',
@@ -160,7 +169,6 @@ export default () => {
                   &nbsp;- Test 2 <br />
                   &nbsp;- Test 3
                 </div>
-                {/* <Modal ref={dropdownRef} /> */}
               </li>
               <li className={styles.navItem}>
                 <Link href='/late/1'>
@@ -219,6 +227,8 @@ import { useState, useEffect, useCallback } from 'react';
 function useDropdown(dropEl, actionEl) {
   dropEl = dropEl.current;
   actionEl = actionEl.current;
+
+  const test = useRef(null);
 
   const [drop, setDrop] = useState(false);
 
