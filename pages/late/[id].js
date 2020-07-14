@@ -14,6 +14,9 @@ const Late = ({ late, loading = true }) => {
   //   );
   // }
 
+  console.log('late from [id].js');
+  console.log(late);
+
   const lateResult = JSON.parse(late);
   // console.log(lateResult);
 
@@ -36,10 +39,10 @@ const Late = ({ late, loading = true }) => {
 export async function getStaticPaths() {
   return {
     // Only `/posts/1` and `/posts/2` are generated at build time
-    paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
+    paths: [{ params: { id: '1' } }],
     // Enable statically generating additional pages
     // For example: `/posts/3`
-    fallback: true,
+    fallback: false,
   };
 }
 
@@ -47,8 +50,8 @@ export async function getStaticPaths() {
 // then use SWR to call api?
 export const getStaticProps = async (context) => {
   // const test = await getSession(context);
-  const lateId = parseInt(context.params.id);
   const prisma = new PrismaClient();
+  const lateId = context.params.id - 0;
   let lateResponse;
 
   try {

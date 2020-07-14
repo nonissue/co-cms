@@ -65,6 +65,7 @@ export const getStaticProps = async (context) => {
   // console.log(context);
 
   const prisma = new PrismaClient();
+
   const latesResponse = await prisma.late.findMany({
     include: { owner: true },
   });
