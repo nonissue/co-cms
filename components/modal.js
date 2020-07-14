@@ -3,7 +3,7 @@ import ClientOnlyPortal from './ClientOnlyPortal';
 
 const btnRef = React.createRef();
 
-export default function Modal() {
+export default function Modal({ buttonRef }) {
   const [open, setOpen] = useState(false);
   const [coords, setCoords] = useState({});
   // const [onButton, setOnButton] = useState(false);
@@ -51,10 +51,10 @@ export default function Modal() {
 
   return (
     <>
-      <button
+      {/* <button
         type='button'
         className='button'
-        ref={btnRef}
+        ref={buttonRef}
         onClick={(e) => {
           updateTooltipCoords(e.target);
           setOpen(!open);
@@ -71,14 +71,14 @@ export default function Modal() {
         // onMouseLeave={(e) => untrackMouse(e)}
       >
         Open Modal
-      </button>
+      </button> */}
       {open && (
         <TooltipPopover
           coords={coords}
           updateTooltipCoords={() => updateTooltipCoords(btnRef.current)}
           toggle={() => setOpen(!open)}
-          track={trackMouse}
-          untrack={untrackMouse}
+          // track={trackMouse}
+          // untrack={untrackMouse}
           // onMouseLeave={(e) => untrackMouse()}
         >
           Test!
@@ -127,14 +127,7 @@ export default function Modal() {
   );
 }
 
-const TooltipPopover = ({
-  children,
-  coords,
-  updateTooltipCoords,
-  toggle,
-  track,
-  untrack,
-}) => {
+const TooltipPopover = ({ children, coords, updateTooltipCoords, toggle }) => {
   const updateCoords = updateTooltipCoords;
 
   useEffect(() => {

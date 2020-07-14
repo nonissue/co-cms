@@ -3,14 +3,15 @@
   min-height: 6rem;
   display: block;
   width: 100%;
+  /* position: relative; */
 }
 
 .loading,
 .loaded {
-  position: relative;
+  /* position: relative; */
   top: 0;
   opacity: 1;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: 2rem;
   margin: 0;
   transition: all 0.25s ease-in-out;
@@ -78,13 +79,14 @@
   display: block;
   white-space: nowrap;
   text-overflow: ellipsis;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: inherit;
   z-index: 1;
   line-height: 1.3rem;
   border: 1px solid rgba(65, 78, 101, 0.1);
   border-top: 0;
   border-radius: 0 0px 6px 6px;
+  background: #f7f9fd;
 }
 .header nav {
   /* margin-bottom: 2rem; */
@@ -110,16 +112,58 @@
   padding: 0;
   list-style: none;
   display: flex;
-  position: relative;
+
+  font-weight: 500;
+  text-decoration: none;
+  color: #4299e1;
+  color: #006bb4;
+
+  /* position: relative; */
+  /* overflow-y: hidden; */
+  /* position: relative; */
+}
+
+.navItem:hover {
+  cursor: pointer;
 }
 
 .navItems a {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .navItem {
-  display: inline-block;
+  /* display: inline-block; */
   margin-right: 1rem;
+  display: block;
   /* display: flex; */
   /* align-content: center; */
+  padding: 0.1rem 0.5rem;
+  font-weight: 600;
+}
+
+.dropdown-test {
+  background-color: #f7f9fd;
+  color: white;
+  /* position: absolute; */
+  /* box-sizing: border-box; */
+  /* margin-left: initial; */
+  padding: inherit;
+  /* top: 0; */
+  /* box-shadow: inherit; */
+  /* left: 0; */
+  /* box-sizing: border-box; */
+  /* font-family: 'Georgia'; */
+  /* padding: 0.2rem 0.3rem; */
+  /* margin: 0 -0.3rem; */
+  /* border: 1px solid #ddebf7; */
+  border-top: 1px solid transparent;
+  /* width: 100px; */
+  width: inherit;
+  color: #234361;
+  z-index: 1000;
+  font-weight: 400;
+  /* padding-left: 0.3rem; */
+  /* overflow: hidden; */
+  /* border-radius: 0.5rem; */
+  /* box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.1); */
 }
