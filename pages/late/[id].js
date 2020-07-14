@@ -47,7 +47,7 @@ export async function getStaticPaths() {
 // then use SWR to call api?
 export const getStaticProps = async (context) => {
   // const test = await getSession(context);
-  const lateId = context.params.id - 0;
+  const lateId = parseInt(context.params.id);
   const prisma = new PrismaClient();
   let lateResponse;
 
