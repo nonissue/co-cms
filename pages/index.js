@@ -2,21 +2,17 @@ import Layout from '../components/layout';
 
 export default () => (
   <Layout>
-    <h1>NextAuth.js Example</h1>
+    <h1>Co-CMS</h1>
     <p>
-      This is an example project to demonstrate{' '}
-      <a href={`https://www.npmjs.com/package/next-auth/v/beta`}>
-        NextAuth.js{' '}
-      </a>
-      .
-    </p>
-    <p>
-      Go to <a href='https://next-auth.js.org'>next-auth.js.org</a> for more
-      information and documentation.
-    </p>
-    <p>
-      This site uses JSON Web Tokens and an in-memory database which resets
-      every ~2 hours.
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the
+      1500s, when an unknown printer took a galley of type and scrambled it to
+      make a type specimen book. It has survived not only five centuries, but
+      also the leap into electronic typesetting, remaining essentially
+      unchanged. It was popularised in the 1960s with the release of Letraset
+      sheets containing Lorem Ipsum passages, and more recently with desktop
+      publishing software like Aldus PageMaker including versions of Lorem
+      Ipsum.{' '}
     </p>
   </Layout>
 );

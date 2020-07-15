@@ -102,11 +102,11 @@ export default () => {
                 !session && loading ? styles.loading : styles.loaded
               }`}
             >
-              <li className={styles.navItem}>
-                <Link href='/'>
+              <Link href='/'>
+                <li className={styles.navItem}>
                   <a>Home</a>
-                </Link>
-              </li>
+                </li>
+              </Link>
               {/* <li
                 className={styles.navItem}
                 onClick={(e) => {
@@ -161,7 +161,9 @@ export default () => {
                 ref={actionRef}
                 style={{
                   border: `${
-                    menuDropdown ? '1px solid #1070CA' : '1px solid transparent'
+                    menuDropdown
+                      ? '1px solid rgba(67, 90, 111, 0.3)'
+                      : '1px solid transparent'
                   }`,
                   borderBottom: `${
                     menuDropdown ? '0px' : '1px solid transparent'
@@ -185,9 +187,10 @@ export default () => {
                     position: 'absolute',
                     border: 'inherit',
                     borderTop: '0px',
-                    borderBottom: '1px solid #084B8A',
-                    lineHeight: '1.3rem',
-                    paddingBottom: '0.5em',
+                    borderBottom: '1px solid rgba(67, 90, 111, 0.3)',
+                    lineHeight: '1.4',
+                    paddingTop: 0,
+                    paddingBottom: '0.7rem',
                   }}
                 >
                   &nbsp;-{' '}
@@ -221,36 +224,30 @@ export default () => {
                   <a>Create</a>
                 </Link>
               </li> */}
-              <li className={styles.navItem}>
-                <Link href='/modal'>
+              <Link href='/modal'>
+                <li className={styles.navItem}>
                   <a>Modal</a>
-                </Link>
-              </li>
+                </li>
+              </Link>
             </ul>
 
             {/* )} */}
           </div>
+
           {session ? (
-            <span
-              style={{ backgroundImage: `url(${session.user.image})` }}
-              className={`${styles.avatar}`}
-            />
+            <a
+              href={`/api/auth/signout`}
+              className={styles.button}
+              onClick={(e) => {
+                e.preventDefault();
+                signout();
+              }}
+            >
+              Sign out
+            </a>
+          ) : loading ? (
+            ''
           ) : (
-            <span></span>
-          )}
-          {session ? (
-            <></>
-          ) : (
-            // <a
-            //   href={`/api/auth/signout`}
-            //   className={styles.button}
-            //   onClick={(e) => {
-            //     e.preventDefault();
-            //     signout();
-            //   }}
-            // >
-            //   Sign out
-            // </a>
             <a
               href={`/api/auth/signin`}
               className={styles.buttonPrimary}
@@ -261,6 +258,14 @@ export default () => {
             >
               Sign in
             </a>
+          )}
+          {session ? (
+            <span
+              style={{ backgroundImage: `url(${session.user.image})` }}
+              className={`${styles.avatar}`}
+            />
+          ) : (
+            ''
           )}
         </nav>
       </div>

@@ -51,10 +51,10 @@ export default function Modal({ buttonRef }) {
 
   return (
     <>
-      {/* <button
+      <button
         type='button'
         className='button'
-        ref={buttonRef}
+        ref={btnRef}
         onClick={(e) => {
           updateTooltipCoords(e.target);
           setOpen(!open);
@@ -71,7 +71,7 @@ export default function Modal({ buttonRef }) {
         // onMouseLeave={(e) => untrackMouse(e)}
       >
         Open Modal
-      </button> */}
+      </button>
       {open && (
         <TooltipPopover
           coords={coords}
@@ -127,7 +127,14 @@ export default function Modal({ buttonRef }) {
   );
 }
 
-const TooltipPopover = ({ children, coords, updateTooltipCoords, toggle }) => {
+const TooltipPopover = ({
+  children,
+  coords,
+  updateTooltipCoords,
+  toggle,
+  track,
+  untrack,
+}) => {
   const updateCoords = updateTooltipCoords;
 
   useEffect(() => {
