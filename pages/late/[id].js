@@ -14,10 +14,15 @@ const Late = ({ late, loading = true }) => {
   //   );
   // }
 
-  console.log('late from [id].js');
-  console.log(late);
+  // console.log('late from [id].js');
+  // console.log(late);
+
+  if (late === {}) {
+    return <Layout>'Error: Late not found'</Layout>;
+  }
 
   const lateResult = JSON.parse(late);
+
   // console.log(lateResult);
 
   return (
@@ -25,7 +30,7 @@ const Late = ({ late, loading = true }) => {
       {lateResult?.url ? (
         <>
           <h1>Late</h1>
-          <p>Title: {lateResult.title}</p>
+          <p>Title: {lateResult?.title}</p>
           <p>URL: {lateResult.url}</p>
           <p>User email: {lateResult.owner.email}</p>
         </>
@@ -38,11 +43,11 @@ const Late = ({ late, loading = true }) => {
 
 export async function getStaticPaths() {
   return {
-    // Only `/posts/1` and `/posts/2` are generated at build time
+    // Only `/late/1` and `/late/2` are generated at build time
     paths: [{ params: { id: '1' } }],
     // Enable statically generating additional pages
     // For example: `/posts/3`
-    fallback: true,
+    fallback: false,
   };
 }
 
@@ -64,9 +69,18 @@ export const getStaticProps = async (context) => {
   } catch (err) {
     console.log(err);
     console.log("can't find that late");
+    throw new Error('Error: Error fetching late: ' + context.query.id);
   }
 
-  const json = await JSON.stringify(lateResponse);
+  let json;
+
+  console.log(lateResponse);
+
+  if (lateResponse) {
+    json = await JSON.stringify(lateResponse);
+  } else {
+    json = {};
+  }
 
   return {
     props: { late: json, loading: false },

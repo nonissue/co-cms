@@ -15,7 +15,7 @@ function Create() {
     error: '',
   });
 
-  console.log(session);
+  // console.log(session);
 
   async function handleSubmit(event) {
     event.preventDefault();
