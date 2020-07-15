@@ -7,6 +7,7 @@ console.log(
 
 const options = {
   site: process.env.SITE || 'http://localhost:3000',
+  debug: true,
 
   // Configure one or more authentication providers
   providers: [
