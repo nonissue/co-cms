@@ -60,9 +60,7 @@ function Lates({ lates }) {
 
 export const getStaticProps = async (context) => {
   // const test = await getSession(context);
-
   // console.log(context);
-
   const prisma = new PrismaClient();
 
   const latesResponse = await prisma.late.findMany({

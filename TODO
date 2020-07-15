@@ -16,19 +16,22 @@ API:
   ☐ All in [id].js?
     ☐ /api/late/[id] -> returns specified late
     ☐ /api/late/[id] METHOD: PUT -> updates
-    ☐ /api/late/[id] METHOD: DELETE -> deletes
+    /api/late/[id] METHOD: DELETE -> deletes
+
+Next.js:
+  ✔ get fallback working? @done(20-07-14 19:30)
 
 Frontend:
   ☐ Link from lates list to individual late
-    ☐ Route by ID? Since url is the only known property, seems safest, slugs won't work since title optional
+    ✔ Route by ID? Since url is the only known property, seems safest, slugs won't work since title optional @done(20-07-14 19:30)
   ☐ Clean up styles
-  ☐ Fix header rendering flash (only on FF?)
+  ✔ Fix header rendering flash (only on FF?) @done(20-07-14 19:30)
     ✔ Seems to happen on multiple pages (not just create) @done(20-07-11 22:29)
     ✔ next auth example doesn't have issue @done(20-07-11 22:29)
     ✔ neither does co-cms commit `5d78324bfb18ed0f5fdb2dfca6c362ce83482bdf` @done(20-07-11 22:29)
-    ☐ DOESN'T HAPPEN WHEN DEPLOYED @critical 
-  ☐ Fix header offset height (slightly too short, when rendering header height is increased)
-    ☐ Only FF?
+    ✔ DOESN'T HAPPEN WHEN DEPLOYED @critical @done(20-07-14 19:30)
+  ✔ Fix header offset height (slightly too short, when rendering header height is increased) @done(20-07-14 19:30)
+    ✔ Only FF? @done(20-07-14 19:30)
   ☐ Export static paths?
 
 Tests:
@@ -36,3 +39,5 @@ Tests:
 
 Resources:
   ☐ https://github.com/drkgrntt/papyr-cms/blob/master/src/pages/api/posts/%5Bid%5D.js
+
+
