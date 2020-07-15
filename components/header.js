@@ -97,14 +97,6 @@ export default () => {
           }`}
         >
           <div className={styles['nav-bar-left']}>
-            {session ? (
-              <span
-                style={{ backgroundImage: `url(${session.user.image})` }}
-                className={`${styles.avatar}`}
-              />
-            ) : (
-              <span></span>
-            )}
             <ul
               className={`${styles.navItems} ${
                 !session && loading ? styles.loading : styles.loaded
@@ -115,16 +107,12 @@ export default () => {
                   <a>Home</a>
                 </Link>
               </li>
-              <li
+              {/* <li
                 className={styles.navItem}
                 onClick={(e) => {
                   updateDropdownCoords(e.target);
-                  // setOpen(!open);
-                  console.log(e.target);
-                  console.log(e.target.getBoundingClientRect());
                   toggleMenuDropdown();
                 }}
-                // style={{ position: 'relative' }}
                 ref={actionRef}
                 style={{
                   border: `${
@@ -135,8 +123,7 @@ export default () => {
                   }`,
                   boxShadow: `${
                     menuDropdown && !menuDropdown
-                      ? // ? '0 0.15rem 0.3rem rgba(0, 0, 0, 0.1)'
-                        '0 0.15rem 0.3rem rgba(0, 0, 0, 0.1)'
+                      ? '0 0.15rem 0.3rem rgba(0, 0, 0, 0.1)'
                       : 'none'
                   }`,
 
@@ -152,15 +139,10 @@ export default () => {
                     left: `calc(${coords.left}px)`,
                     top: `calc(${coords.top}px)`,
                     position: 'absolute',
-                    // top: 0,
-                    // bottom: 0,
-                    // left: 0,
-                    // right: 0,
                     border: 'inherit',
                     borderTop: '0px',
                     borderBottom: '1px solid #084B8A',
                     lineHeight: '1.3rem',
-                    // paddingLeft: '0.5em',
                     paddingBottom: '0.5em',
                   }}
                 >
@@ -169,8 +151,62 @@ export default () => {
                   &nbsp;- Test 2 <br />
                   &nbsp;- Test 3
                 </div>
+              </li> */}
+              <li
+                className={styles.navItem}
+                onClick={(e) => {
+                  updateDropdownCoords(e.target);
+                  toggleMenuDropdown();
+                }}
+                ref={actionRef}
+                style={{
+                  border: `${
+                    menuDropdown ? '1px solid #1070CA' : '1px solid transparent'
+                  }`,
+                  borderBottom: `${
+                    menuDropdown ? '0px' : '1px solid transparent'
+                  }`,
+                  boxShadow: `${
+                    menuDropdown && !menuDropdown
+                      ? '0 0.15rem 0.3rem rgba(0, 0, 0, 0.1)'
+                      : 'none'
+                  }`,
+                  // width: '75px',
+                }}
+              >
+                Lates ✲
+                <div
+                  ref={dropdownRef}
+                  hidden={!menuDropdown}
+                  className={styles['dropdown-test']}
+                  style={{
+                    left: `calc(${coords.left}px)`,
+                    top: `calc(${coords.top}px)`,
+                    position: 'absolute',
+                    border: 'inherit',
+                    borderTop: '0px',
+                    borderBottom: '1px solid #084B8A',
+                    lineHeight: '1.3rem',
+                    paddingBottom: '0.5em',
+                  }}
+                >
+                  &nbsp;-{' '}
+                  <Link href='/lates'>
+                    <a>All</a>
+                  </Link>
+                  <br />
+                  &nbsp;-{' '}
+                  <Link href='/late/1'>
+                    <a>One</a>
+                  </Link>
+                  <br />
+                  &nbsp;-{' '}
+                  <Link href='/late/create'>
+                    <a>Create</a>
+                  </Link>
+                </div>
               </li>
-              <li className={styles.navItem}>
+              {/* <li className={styles.navItem}>
                 <Link href='/late/1'>
                   <a>Single late</a>
                 </Link>
@@ -184,27 +220,37 @@ export default () => {
                 <Link href='/late/create'>
                   <a>Create</a>
                 </Link>
-              </li>
+              </li> */}
               <li className={styles.navItem}>
                 <Link href='/modal'>
                   <a>Modal</a>
                 </Link>
               </li>
             </ul>
+
             {/* )} */}
           </div>
           {session ? (
-            <a
-              href={`/api/auth/signout`}
-              className={styles.button}
-              onClick={(e) => {
-                e.preventDefault();
-                signout();
-              }}
-            >
-              Sign out
-            </a>
+            <span
+              style={{ backgroundImage: `url(${session.user.image})` }}
+              className={`${styles.avatar}`}
+            />
           ) : (
+            <span></span>
+          )}
+          {session ? (
+            <></>
+          ) : (
+            // <a
+            //   href={`/api/auth/signout`}
+            //   className={styles.button}
+            //   onClick={(e) => {
+            //     e.preventDefault();
+            //     signout();
+            //   }}
+            // >
+            //   Sign out
+            // </a>
             <a
               href={`/api/auth/signin`}
               className={styles.buttonPrimary}
