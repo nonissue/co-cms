@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { useRouter } from 'next/router';
 import Layout from '../../components/layout';
 
-const Late = ({ late, loading = true }) => {
+const Late = ({ late, loading = true, error }) => {
   // const router = useRouter();
   // const { id } = router.query;
 
@@ -15,10 +15,19 @@ const Late = ({ late, loading = true }) => {
   // }
 
   // console.log('late from [id].js');
-  // console.log(late);
+  console.log(late);
 
-  if (late === {}) {
-    return <Layout>'Error: Late not found'</Layout>;
+  if (!late) {
+    if (loading) {
+      return <Layout>Loading...</Layout>;
+    }
+    return (
+      <Layout>
+        <h1>Error: Late not found</h1>
+        <br />
+        <code>Requested id: {error ? error : 'nope'}</code>
+      </Layout>
+    );
   }
 
   const lateResult = JSON.parse(late);
@@ -34,8 +43,10 @@ const Late = ({ late, loading = true }) => {
           <p>URL: {lateResult.url}</p>
           <p>User email: {lateResult.owner.email}</p>
         </>
+      ) : loading ? (
+        <>'Loading...'</>
       ) : (
-        'Error: Late not found'
+        <>Error: Late not found / Loading: {loading}</>
       )}
     </Layout>
   );
@@ -47,7 +58,7 @@ export async function getStaticPaths() {
     paths: [{ params: { id: '1' } }],
     // Enable statically generating additional pages
     // For example: `/posts/3`
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -69,7 +80,8 @@ export const getStaticProps = async (context) => {
   } catch (err) {
     console.log(err);
     console.log("can't find that late");
-    throw new Error('Error: Error fetching late: ' + context.query.id);
+    // return { props: { late: null, loading: false } };
+    throw new Error('Error: Error fetching late: ' + context.params.id);
   }
 
   let json;
@@ -79,11 +91,13 @@ export const getStaticProps = async (context) => {
   if (lateResponse) {
     json = await JSON.stringify(lateResponse);
   } else {
-    json = {};
+    return {
+      props: { late: null, loading: false, error: context.params.id },
+    };
   }
 
   return {
-    props: { late: json, loading: false },
+    props: { late: json, loading: false, error: false },
   };
 };
 
