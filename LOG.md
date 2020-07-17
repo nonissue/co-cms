@@ -19,3 +19,4 @@
     - https://jsbin.com/racahosuti/edit?css,output
     - https://propjockey.github.io/css-media-vars/
 - Sometimes 'lates' nav item shifts to the left and then back? No idea what's going on. Can't reliably reproduce.
+  - Could be related to the css that controls header loading in?
