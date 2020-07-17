@@ -90,40 +90,41 @@ export default () => {
               </li>
             </ul>
           </div>
-
-          {session ? (
-            <a
-              href={`/api/auth/signout`}
-              className={styles.button}
-              onClick={(e) => {
-                e.preventDefault();
-                signout();
-              }}
-            >
-              Sign out
-            </a>
-          ) : loading ? (
-            ''
-          ) : (
-            <a
-              href={`/api/auth/signin`}
-              className={styles.buttonPrimary}
-              onClick={(e) => {
-                e.preventDefault();
-                signin();
-              }}
-            >
-              Sign in
-            </a>
-          )}
-          {session ? (
-            <span
-              style={{ backgroundImage: `url(${session.user.image})` }}
-              className={`${styles.avatar}`}
-            />
-          ) : (
-            ''
-          )}
+          <div className={styles['nav-bar-right']}>
+            {session ? (
+              <a
+                href={`/api/auth/signout`}
+                className={styles.button}
+                onClick={(e) => {
+                  e.preventDefault();
+                  signout();
+                }}
+              >
+                Sign out
+              </a>
+            ) : loading ? (
+              ''
+            ) : (
+              <a
+                href={`/api/auth/signin`}
+                className={styles.buttonPrimary}
+                onClick={(e) => {
+                  e.preventDefault();
+                  signin();
+                }}
+              >
+                Sign in
+              </a>
+            )}
+            {session ? (
+              <span
+                style={{ backgroundImage: `url(${session.user.image})` }}
+                className={`${styles.avatar}`}
+              />
+            ) : (
+              ''
+            )}
+          </div>
         </nav>
       </div>
     </header>
