@@ -4,45 +4,35 @@ import { useSession, getSession } from 'next-auth/client';
 import Layout from '../components/layout';
 import styles from './lates.module.css';
 
-// async function getLates() {
-//   const allLates = await prisma.late.findMany({ include: { lates: true } });
-
-//   console.dir(allLates, { depth: null });
-// }
-
-// Receives prisma users with lates
-// parse them from json
-// Map over the resulting users
 function Lates({ lates }) {
-  const [session, loading] = useSession();
+  if (!lates) {
+    return <Layout>Loading...</Layout>;
+  }
+
   const latesList = JSON.parse(lates);
 
   return (
     <Layout>
-      {!session && !loading ? (
-        <h1>Please sign in!</h1>
-      ) : (
-        <>
-          <h1> Lates</h1>
-          {latesList.map((late) => {
-            return (
-              <div className={styles['lates-item']} key={late.id}>
-                <div>
-                  <h1>
-                    <Link href={`/late/${late.id}`}>
-                      <a>{late.title}</a>
-                    </Link>
-                  </h1>
-                  <p>— by {late.owner.name}</p>
-                </div>
-                <div>
-                  <code>{late.url}</code>
-                </div>
+      <>
+        <h1> Lates</h1>
+        {latesList.map((late) => {
+          return (
+            <div className={styles['lates-item']} key={late.id}>
+              <div>
+                <h1>
+                  <Link href={`/late/${late.id}`}>
+                    <a>{late.title}</a>
+                  </Link>
+                </h1>
+                <p>— by {late.owner.name}</p>
               </div>
-            );
-          })}
-        </>
-      )}
+              <div>
+                <code>{late.url}</code>
+              </div>
+            </div>
+          );
+        })}
+      </>
     </Layout>
   );
 }
@@ -63,9 +53,7 @@ function Lates({ lates }) {
 //   };
 // };xres
 
-export const getStaticProps = async (context) => {
-  // const test = await getSession(context);
-  // console.log(context);
+export const getStaticProps = async () => {
   const prisma = new PrismaClient();
 
   const latesResponse = await prisma.late.findMany({
