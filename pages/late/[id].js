@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { useRouter } from 'next/router';
 import Layout from '../../components/layout';
-
+const prisma = new PrismaClient();
 const Late = ({ late, loading = true, error }) => {
   // const router = useRouter();
   // const { id } = router.query;
@@ -53,11 +53,14 @@ const Late = ({ late, loading = true, error }) => {
 };
 
 export async function getStaticPaths() {
+  const allLates = await prisma.late.findMany({
+    include: { owner: true },
+  });
+
+  const paths = allLates.map((late) => `/late/${late.id}`);
+
   return {
-    // Only `/late/1` and `/late/2` are generated at build time
-    paths: [{ params: { id: '1' } }],
-    // Enable statically generating additional pages
-    // For example: `/posts/3`
+    paths,
     fallback: false,
   };
 }
@@ -66,7 +69,7 @@ export async function getStaticPaths() {
 // then use SWR to call api?
 export const getStaticProps = async (context) => {
   // const test = await getSession(context);
-  const prisma = new PrismaClient();
+
   const lateId = context.params.id - 0;
   let lateResponse;
 
