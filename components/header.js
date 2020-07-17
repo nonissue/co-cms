@@ -12,6 +12,11 @@ export default () => {
   const dropdownRef = useRef(null);
 
   const updateDropdownCoords = (button) => {
+    if (!button.getBoundingClientRect()) {
+      console.log('getBoundingRect called without button ref');
+      console.log(button);
+      return;
+    }
     const rect = button.getBoundingClientRect();
     setCoords({
       left: rect.x + rect.width / 8, // add half the width of the button for centering

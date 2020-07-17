@@ -7,11 +7,15 @@
   box-shadow: rgba(54, 97, 126, 0.01) 0px 2px 3px -1px;
   margin-bottom: 0.5rem;
   border-radius: 0px;
-
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
+}
+@media (min-width: 500px) {
+  .lates-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
 }
 .lates-item h1,
 .lates-item p {
@@ -27,11 +31,16 @@
 }
 .lates-item p {
   color: rgba(54, 97, 126, 1);
-  margin: 0.5rem;
+  margin: 0.5rem 0;
+}
+@media (min-width: 500px) {
+  .lates-item p {
+    margin: 0.5rem;
+  }
 }
 .lates-item code {
   /* color: red; */
-  text-align: right;
+
   color: hsl(204, 95%, 40%);
   font-size: 1.3rem;
   /* border: 1px solid red; */
@@ -41,9 +50,22 @@
 
   text-decoration: underline;
 }
+@media (min-width: 500px) {
+  .lates-item code {
+    text-align: right;
+  }
+}
 .lates-item > * {
-  width: 50%;
+  width: 100%;
   /* background: red; */
+}
+@media (min-width: 500px) {
+  .lates-item > * {
+    width: 50%;
+  }
+  .lates-item code {
+    text-align: right;
+  }
 }
 
 .lates-item p {

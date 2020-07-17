@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import Link from 'next/link';
 import { useSession, getSession } from 'next-auth/client';
 import Layout from '../components/layout';
 import styles from './lates.module.css';
@@ -27,8 +28,12 @@ function Lates({ lates }) {
             return (
               <div className={styles['lates-item']} key={late.id}>
                 <div>
-                  <h1>{late.title}</h1>
-                  <p>&nbsp;&nbsp;— by {late.owner.name}</p>
+                  <h1>
+                    <Link href={`/late/${late.id}`}>
+                      <a>{late.title}</a>
+                    </Link>
+                  </h1>
+                  <p>— by {late.owner.name}</p>
                 </div>
                 <div>
                   <code>{late.url}</code>
