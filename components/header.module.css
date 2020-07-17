@@ -34,7 +34,7 @@
   background-clip: content-box;
   transition: all 0.2s ease-in;
   will-change: border, filter;
-  --sm-display: var(--media-lte-md) none;
+  --sm-display: var(--media-lte-sm) none;
   display: var(--sm-display, block);
 }
 
