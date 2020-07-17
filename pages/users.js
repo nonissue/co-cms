@@ -2,19 +2,12 @@ import { PrismaClient } from '@prisma/client';
 import { useSession, getSession } from 'next-auth/client';
 import Layout from '../components/layout';
 
-async function getUsers() {
-  const allUsers = await prisma.user.findMany({ include: { lates: true } });
-
-  console.dir(allUsers, { depth: null });
-}
-
 // Receives prisma users with lates
 // parse them from json
 // Map over the resulting users
 function Users({ users }) {
   const [session, loading] = useSession();
   const userList = JSON.parse(users);
-  const test = console.log(userList);
 
   return (
     <Layout>
@@ -28,7 +21,6 @@ function Users({ users }) {
               <div key={user.id}>
                 <h3>{user.name}</h3>
                 <h4>{user.email}</h4>
-                {console.log(user.lates)}
               </div>
             );
           })}

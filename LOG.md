@@ -18,5 +18,7 @@
     - https://jsbin.com/muqisetivo/edit?html,css,output
     - https://jsbin.com/racahosuti/edit?css,output
     - https://propjockey.github.io/css-media-vars/
+  - Caveats:
+    - Had to add `css-media-vars.css` to public folder, then import in `<Head>` to prevent minification from mangling the empty css vars
 - Sometimes 'lates' nav item shifts to the left and then back? No idea what's going on. Can't reliably reproduce.
   - Could be related to the css that controls header loading in?
