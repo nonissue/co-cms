@@ -2161,6 +2161,11 @@ css-loader@3.5.3:
     schema-utils "^2.6.6"
     semver "^6.3.0"
 
+css-media-vars@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/css-media-vars/-/css-media-vars-1.0.1.tgz#a058b92126f8eec392ce1bd1401175b859b2822a"
+  integrity sha512-DIUOUGmiYNrno2MyYxMVnxbO1c7gid7HoouhZ8DSZ+96FyYu4YhekWQYkOJq9cQ+KzcGWHU1leBBNqm/r6WQbw==
+
 css-select-base-adapter@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/css-select-base-adapter/-/css-select-base-adapter-0.1.1.tgz#3b2ff4972cc362ab88561507a95408a1432135d7"

@@ -29,6 +29,7 @@ export default () => {
     actionRef
   );
 
+  // Move dropdown when window is resized
   useEffect(() => {
     window.addEventListener('resize', () =>
       updateDropdownCoords(actionRef.current)
