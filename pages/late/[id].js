@@ -3,20 +3,6 @@ import { useRouter } from 'next/router';
 import Layout from '../../components/layout';
 const prisma = new PrismaClient();
 const Late = ({ late, loading = true, error }) => {
-  // const router = useRouter();
-  // const { id } = router.query;
-
-  // if (!late?.url || !loading) {
-  //   return (
-  //     <Layout>
-  //       <h1>Error: Late not found</h1>
-  //     </Layout>
-  //   );
-  // }
-
-  // console.log('late from [id].js');
-  console.log(late);
-
   if (!late) {
     if (loading) {
       return <Layout>Loading...</Layout>;
@@ -68,8 +54,6 @@ export async function getStaticPaths() {
 // move this to api call that fetches late
 // then use SWR to call api?
 export const getStaticProps = async (context) => {
-  // const test = await getSession(context);
-
   const lateId = context.params.id - 0;
   let lateResponse;
 
@@ -81,8 +65,6 @@ export const getStaticProps = async (context) => {
       include: { owner: true },
     });
   } catch (err) {
-    console.log(err);
-    console.log("can't find that late");
     // return { props: { late: null, loading: false } };
     throw new Error('Error: Error fetching late: ' + context.params.id);
   }

@@ -94,6 +94,11 @@ export default () => {
                   </Link>
                 </div>
               </li>
+              <Link href='/late/tags'>
+                <li className={styles.navItem}>
+                  <a>Tags</a>
+                </li>
+              </Link>
             </ul>
           </div>
           <div className={styles['nav-bar-right']}>
