@@ -1,7 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
-import { useSession, getSession } from 'next-auth/client';
-import Layout from '../components/layout';
+import Layout from '../../components/layout';
 import styles from './lates.module.css';
 
 function Lates({ lates }) {

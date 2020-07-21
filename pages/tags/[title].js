@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { useRouter } from 'next/router';
-import Layout from '../../../components/layout';
+import Layout from '../../components/layout';
 const prisma = new PrismaClient();
 
 const Tag = ({ data, loading = true, error }) => {
@@ -28,7 +28,7 @@ const Tag = ({ data, loading = true, error }) => {
       <h3>{title}</h3>
       <ul>
         {lates.map((late) => {
-          return <li>{late.url}</li>;
+          return <li key={late.id}>{late.url}</li>;
         })}
       </ul>
     </Layout>
@@ -66,13 +66,10 @@ export const getServerSideProps = async (context) => {
   } catch (err) {
     console.log(err);
     console.log("can't find that tag");
-    // return { props: { late: null, loading: false } };
     throw new Error('Error: Error fetching late: ' + context.params.title);
   }
 
   let json;
-
-  // console.log(tagWithLates);
 
   if (tagWithLates) {
     json = await JSON.stringify(tagWithLates);
