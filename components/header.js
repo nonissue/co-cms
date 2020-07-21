@@ -35,7 +35,7 @@ export default () => {
                   }
                   // position='bottom'
                 >
-                  <a href='#'>Lates</a>
+                  <a>Lates</a>
                 </Dropdown>
               </li>
               <li className={styles.navItem}>
@@ -57,7 +57,7 @@ export default () => {
                   }
                   // position='bottom'
                 >
-                  <a href='#'>Tags</a>
+                  <a>Tags</a>
                 </Dropdown>
               </li>
             </ul>
