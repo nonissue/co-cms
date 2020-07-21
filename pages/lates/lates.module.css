@@ -26,20 +26,24 @@
 }
 .lates-item h1 {
   font-weight: 700;
+  /* font-weight: bold; */
   font-size: 1.4rem;
   line-height: 1.7rem;
   font-style: italic;
   color: rgb(0, 107, 180);
 }
+.lates-item h1 a {
+  font-weight: 700;
+}
 .lates-item p {
   color: rgba(54, 97, 126, 1);
 
-  --sm-margin-x: var(--media-lte-sm) 0;
-  margin: 0.5rem var(--sm-margin-x, 0.5rem);
+  --sm-margin-x: var(--media-lte-sm) 0 0;
+  margin: 0rem var(--sm-margin-x, 1rem);
 }
 .lates-item code {
   color: hsl(204, 95%, 40%);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   display: block;
   font-weight: 300;
   text-decoration: underline;

@@ -71,8 +71,6 @@ export const getStaticProps = async (context) => {
 
   let json;
 
-  console.log(lateResponse);
-
   if (lateResponse) {
     json = await JSON.stringify(lateResponse);
   } else {

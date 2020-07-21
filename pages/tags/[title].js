@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client';
-import { useRouter } from 'next/router';
 import Layout from '../../components/layout';
 const prisma = new PrismaClient();
 
@@ -17,15 +16,11 @@ const Tag = ({ data, loading = true, error }) => {
     );
   }
 
-  console.log(data);
-
   const { title, lates } = JSON.parse(data);
-
-  // console.log(lateResult);
 
   return (
     <Layout>
-      <h3>{title}</h3>
+      <h3>Tag: {title}</h3>
       <ul>
         {lates.map((late) => {
           return <li key={late.id}>{late.url}</li>;
@@ -35,22 +30,20 @@ const Tag = ({ data, loading = true, error }) => {
   );
 };
 
-// export async function getStaticPaths() {
-//   const allLates = await prisma.late.findMany({
-//     include: { owner: true },
-//   });
+export async function getStaticPaths() {
+  const allTags = await prisma.tag.findMany();
 
-//   const paths = allLates.map((late) => `/late/${late.id}`);
+  const paths = allTags.map((tag) => `/tags/${tag.title}`);
 
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
+  return {
+    paths,
+    fallback: false,
+  };
+}
 
 // move this to api call that fetches late
 // then use SWR to call api?
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   // const test = await getSession(context);
 
   const tagTitle = context.params.title;
@@ -64,8 +57,6 @@ export const getServerSideProps = async (context) => {
       include: { lates: true },
     });
   } catch (err) {
-    console.log(err);
-    console.log("can't find that tag");
     throw new Error('Error: Error fetching late: ' + context.params.title);
   }
 

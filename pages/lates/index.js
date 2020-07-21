@@ -23,7 +23,9 @@ function Lates({ lates }) {
                     <a>{late.title}</a>
                   </Link>
                 </h1>
-                <p>— by {late.owner.name}</p>
+                <p>
+                  — by {late.owner.name} on {late.createdAt}
+                </p>
               </div>
               <div>
                 <code>{late.url}</code>
