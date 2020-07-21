@@ -1,0 +1,58 @@
+.lates-item {
+  /* border: 1px solid #ccc; */
+  border-bottom: 1px solid #e6e3e3;
+
+  /* border-left-color: rgba(0, 0, 0, 0.05); */
+  padding: 1rem 0;
+  box-shadow: rgba(54, 97, 126, 0.01) 0px 2px 3px -1px;
+  margin-bottom: 0.5rem;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+
+  /* @ < small sizes do this: */
+  --sm-flex-direction: var(--media-lte-sm) column;
+  --sm-align-items: var(--media-lte-sm) flex-start;
+  --sm-justify-content: var(--media-lte-sm) space-between;
+
+  flex-direction: var(--sm-flex-direction, row);
+  align-items: var(--sm-align-items, center);
+  justify-content: var(--sm-justify-content, flex-end);
+}
+.lates-item h1,
+.lates-item p {
+  margin: 0;
+  text-align: left;
+}
+.lates-item h1 {
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  font-style: italic;
+  color: rgb(0, 107, 180);
+}
+.lates-item p {
+  color: rgba(54, 97, 126, 1);
+
+  --sm-margin-x: var(--media-lte-sm) 0;
+  margin: 0.5rem var(--sm-margin-x, 0.5rem);
+}
+.lates-item code {
+  color: hsl(204, 95%, 40%);
+  font-size: 1.3rem;
+  display: block;
+  font-weight: 300;
+  text-decoration: underline;
+
+  --sm-text-align: var(--media-lte-sm) left;
+  text-align: var(--sm-text-align, right);
+}
+.lates-item > * {
+  width: 100%;
+  --sm-width: var(--media-lte-sm) 100%;
+  width: var(--sm-width, 50%);
+}
+
+.lates-item p {
+  font-size: 0.8rem;
+}
