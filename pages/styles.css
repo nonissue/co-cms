@@ -18,10 +18,11 @@ p {
 }
 
 a {
-  font-weight: 500;
+  /* font-weight: 500; */
   text-decoration: none;
-  color: #4299e1;
-  color: #006bb4;
+  color: #234361;
+  /* color: #4299e1; */
+  /* color: #006bb4; */
 }
 
 hr {

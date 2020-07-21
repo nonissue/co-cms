@@ -1,3 +1,11 @@
+.lates-list {
+  color: #234361;
+}
+.lates-list h1 {
+  color: #234361;
+  font-size: 1.6em;
+}
+
 .lates-item {
   /* border: 1px solid #ccc; */
   border-bottom: 1px solid #e6e3e3;
@@ -17,19 +25,21 @@
 
   flex-direction: var(--sm-flex-direction, row);
   align-items: var(--sm-align-items, center);
+  color: #234361;
   justify-content: var(--sm-justify-content, flex-end);
 }
 .lates-item h1,
 .lates-item p {
   margin: 0;
   text-align: left;
+  color: #234361;
 }
 .lates-item h1 {
   font-weight: 700;
   /* font-weight: bold; */
   font-size: 1.4rem;
   line-height: 1.7rem;
-  font-style: italic;
+  /* font-style: italic; */
   color: rgb(0, 107, 180);
 }
 .lates-item h1 a {
@@ -39,7 +49,7 @@
   color: rgba(54, 97, 126, 1);
 
   --sm-margin-x: var(--media-lte-sm) 0 0;
-  margin: 0rem var(--sm-margin-x, 1rem);
+  margin: 0rem var(--sm-margin-x, 0rem);
 }
 .lates-item code {
   color: hsl(204, 95%, 40%);
@@ -59,4 +69,24 @@
 
 .lates-item p {
   font-size: 0.8rem;
+}
+
+/* .lates-item .tags {
+} */
+.lates-item h3 {
+  font-size: 1em;
+}
+.lates-item .tags ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  font-family: 'Monaco', 'Inconsolata', monospace;
+  font-size: 0.8em;
+}
+.lates-item .tags li {
+  display: inline;
+}
+.lates-item .tags * ~ * {
+  margin-left: 0.5em;
 }

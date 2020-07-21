@@ -32,10 +32,16 @@ function Lates({ lates }) {
                 </p>
                 {late.tags.length != [] && (
                   <div className={styles.tags}>
-                    <h3>Tags</h3>
+                    {/* <h3>Tags</h3> */}
                     <ul>
                       {late.tags.map((tag) => {
-                        return <li key={tag.id}>{tag.title}</li>;
+                        return (
+                          <li key={tag.id}>
+                            <Link href={`tags/${tag.title}`}>
+                              <a>{tag.title}</a>
+                            </Link>
+                          </li>
+                        );
                       })}
                     </ul>
                   </div>
