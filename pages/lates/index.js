@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
 import Layout from '../../components/layout';
+import Date from '../../components/date';
 import styles from './lates.module.css';
 
 function Lates({ lates }) {
@@ -12,9 +13,12 @@ function Lates({ lates }) {
 
   return (
     <Layout>
-      <>
+      <div className={styles['lates-list']}>
         <h1> Lates</h1>
         {latesList.map((late) => {
+          {
+            console.log(late);
+          }
           return (
             <div className={styles['lates-item']} key={late.id}>
               <div>
@@ -24,8 +28,18 @@ function Lates({ lates }) {
                   </Link>
                 </h1>
                 <p>
-                  — by {late.owner.name} on {late.createdAt}
+                  — by {late.owner.name} on <Date dateString={late.createdAt} />
                 </p>
+                {late.tags.length != [] && (
+                  <div className={styles.tags}>
+                    <h3>Tags</h3>
+                    <ul>
+                      {late.tags.map((tag) => {
+                        return <li key={tag.id}>{tag.title}</li>;
+                      })}
+                    </ul>
+                  </div>
+                )}
               </div>
               <div>
                 <code>{late.url}</code>
@@ -33,7 +47,7 @@ function Lates({ lates }) {
             </div>
           );
         })}
-      </>
+      </div>
     </Layout>
   );
 }
@@ -58,7 +72,7 @@ export const getStaticProps = async () => {
   const prisma = new PrismaClient();
 
   const latesResponse = await prisma.late.findMany({
-    include: { owner: true },
+    include: { owner: true, tags: true },
   });
 
   const json = await JSON.stringify(latesResponse);
