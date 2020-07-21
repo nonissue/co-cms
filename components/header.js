@@ -85,16 +85,16 @@ export default () => {
                     <a>All</a>
                   </Link>
 
-                  <Link href='/late/1'>
+                  <Link href='/lates/1'>
                     <a>One</a>
                   </Link>
 
-                  <Link href='/late/create'>
+                  <Link href='/lates/create'>
                     <a>Create +</a>
                   </Link>
                 </div>
               </li>
-              <Link href='/late/tags'>
+              <Link href='/tags'>
                 <li className={styles.navItem}>
                   <a>Tags</a>
                 </li>
@@ -142,6 +142,11 @@ export default () => {
   );
 };
 
+// move this to hook lib
+// also somehow move updateCoords function here?
+// https://github.com/alexkatz/react-tiny-popover#examples
+// https://codesandbox.io/s/pmk54o1p9m?from-embed
+// https://github.com/3tmaan/react-hooks-tooltip/blob/master/src/components/Tooltip/Tooltip.js +++
 import { useState, useEffect, useCallback } from 'react';
 
 function useDropdown(dropEl, actionEl) {
