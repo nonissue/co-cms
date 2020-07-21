@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import styles from './header.module.css';
+import Dropdown from './dropdown';
 
 // The approach used in this component shows how to built a sign in and sign out
 // component that works on pages which support both client and server side
@@ -15,8 +16,8 @@ export default () => {
     }
     const rect = button.getBoundingClientRect();
     setCoords({
-      left: rect.x + rect.width / 8, // add half the width of the button for centering
-      top: rect.y + window.scrollY + rect.height, // add scrollY offset, as soon as getBountingClientRect takes on screen coords
+      left: rect.x,
+      top: rect.y + window.scrollY + rect.height * 1.5, // * 1.5 to give us a bit of a margin
     });
   };
 
@@ -45,55 +46,98 @@ export default () => {
         <nav>
           <div className={styles['nav-bar-left']}>
             <ul className={`${styles.navItems}`}>
-              <Link href='/'>
-                <li className={styles.navItem}>
+              <li className={styles.navItem}>
+                <Link href='/'>
                   <a>Home</a>
-                </li>
-              </Link>
+                </Link>
+              </li>
+
               <li
-                className={styles.navItem}
-                onClick={(e) => {
-                  updateDropdownCoords(e.target);
-                  toggleMenuDropdown();
-                }}
-                ref={actionRef}
+                className={`${styles['navItem']} ${styles['dropdown-action']}`}
               >
-                Lates ✲
-                <div
-                  ref={dropdownRef}
-                  hidden={!menuDropdown}
-                  className={styles['dropdown-test']}
-                  style={{
-                    ...coords,
-                    position: 'absolute',
+                <a
+                  href='#'
+                  ref={actionRef}
+                  onClick={(e) => {
+                    updateDropdownCoords(e.target);
+                    toggleMenuDropdown();
                   }}
                 >
-                  <Link href='/lates'>
-                    <a>All</a>
-                  </Link>
-
-                  <Link href='/lates/1'>
-                    <a>One</a>
-                  </Link>
-
-                  <Link href='/lates/create'>
-                    <a>Create +</a>
-                  </Link>
-                </div>
+                  Lates ✲
+                </a>
               </li>
-              <Link href='/tags'>
-                <li className={styles.navItem}>
-                  <a>Tags</a>
-                </li>
-              </Link>
-              <Link href='/admin'>
-                <li className={styles.navItem}>
-                  <a>Admin</a>
-                </li>
-              </Link>
+              <div
+                ref={dropdownRef}
+                hidden={!menuDropdown}
+                className={`${styles['dropdown']}`}
+                style={{
+                  ...coords,
+                  position: 'absolute',
+                }}
+              >
+                <Link href='/lates'>
+                  <a>All</a>
+                </Link>
+
+                <Link href='/lates/1'>
+                  <a>One</a>
+                </Link>
+
+                <Link href='/lates/create'>
+                  <a>Create +</a>
+                </Link>
+              </div>
+
+              <li className={styles.navItem}>
+                <Dropdown
+                  content={
+                    <>
+                      {' '}
+                      <Link href='/lates'>
+                        <a>All</a>
+                      </Link>
+                      <Link href='/lates/1'>
+                        <a>One</a>
+                      </Link>
+                      <Link href='/lates/create'>
+                        <a>Create +</a>
+                      </Link>
+                    </>
+                  }
+                  // position='bottom'
+                >
+                  <a href='#'>Lates</a>
+                </Dropdown>
+              </li>
+              <li className={styles.navItem}>
+                <Dropdown
+                  content={
+                    <>
+                      <Link href='/tags'>
+                        <a>All Tags</a>
+                      </Link>
+
+                      <Link href='/tags/firsttag'>
+                        <a>One</a>
+                      </Link>
+
+                      <Link href='/tags/create'>
+                        <a>Create +</a>
+                      </Link>
+                    </>
+                  }
+                  // position='bottom'
+                >
+                  <a href='#'>Tags</a>
+                </Dropdown>
+              </li>
             </ul>
           </div>
-          <div className={styles['nav-bar-right']}>Right</div>
+          <div className={styles['nav-bar-right']}>
+            <Link href='/admin'>
+              <a>Admin</a>
+            </Link>
+          </div>
         </nav>
       </div>
     </header>
