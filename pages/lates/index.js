@@ -19,7 +19,7 @@ function Lates({ lates }) {
             <div className={styles['lates-item']} key={late.id}>
               <div>
                 <h1>
-                  <Link href={`/late/${late.id}`}>
+                  <Link href={`/lates/${late.id}`}>
                     <a>{late.title}</a>
                   </Link>
                 </h1>
