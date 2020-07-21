@@ -16,6 +16,22 @@ const options = {
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
+  // get user id since email won't always be returned from github
+  // https://github.com/iaincollins/next-auth/issues/366
+  session: {
+    jwt: true,
+  },
+  // get user id since email won't always be returned from github
+  // https://github.com/iaincollins/next-auth/issues/366
+  callbacks: {
+    async session(session, token) {
+      // expose user id
+      return Promise.resolve({
+        ...session,
+        user: { ...session.user, id: token.account.id },
+      });
+    },
+  },
 
   // A database is optional, but required to persist accounts in a database
   // database: process.env.DATABASE_URL,
