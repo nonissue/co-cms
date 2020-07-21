@@ -6,7 +6,7 @@ import styles from './header.module.css';
 // The approach used in this component shows how to built a sign in and sign out
 // component that works on pages which support both client and server side
 // rendering, and avoids any flash incorrect content on initial page load.
-export default () => {
+const AdminHeader = () => {
   const [session, loading] = useSession();
   const actionRef = useRef(null);
   const dropdownRef = useRef(null);
@@ -197,3 +197,5 @@ function useDropdown(dropEl, actionEl) {
 
   return [drop, toggleDrop];
 }
+
+export default AdminHeader;
