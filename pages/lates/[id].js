@@ -18,8 +18,6 @@ const Late = ({ late, loading = true, error }) => {
 
   const lateResult = JSON.parse(late);
 
-  // console.log(lateResult);
-
   return (
     <Layout>
       {lateResult?.url ? (
@@ -65,7 +63,6 @@ export const getStaticProps = async (context) => {
       include: { owner: true },
     });
   } catch (err) {
-    // return { props: { late: null, loading: false } };
     throw new Error('Error: Error fetching late: ' + context.params.id);
   }
 

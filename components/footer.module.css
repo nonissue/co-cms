@@ -1,5 +1,9 @@
 .footer {
-  margin-top: 2rem;
+  margin-top: 0rem;
+}
+
+.footer hr {
+  margin: 1.5rem 0;
 }
 
 .navItems {
@@ -8,7 +12,12 @@
   list-style: none;
 }
 
-.navItem {
+.navItem,
+.navItem a {
   display: inline-block;
   margin-right: 1rem;
+
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: rgba(67, 90, 111, 0.9);
 }

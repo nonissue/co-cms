@@ -67,6 +67,10 @@
   width: var(--sm-width, 50%);
 }
 
+.lates-item:last-child {
+  border-bottom: 0;
+}
+
 .lates-item p {
   font-size: 0.8rem;
 }

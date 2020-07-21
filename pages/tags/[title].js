@@ -44,8 +44,6 @@ export async function getStaticPaths() {
 // move this to api call that fetches late
 // then use SWR to call api?
 export const getStaticProps = async (context) => {
-  // const test = await getSession(context);
-
   const tagTitle = context.params.title;
   let tagWithLates;
 

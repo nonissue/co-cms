@@ -14,9 +14,9 @@ Conceptually:
 API: 
   ☐ Implement all crud operations
   ☐ All in [id].js?
-    ☐ /api/late/[id] -> returns specified late
-    ☐ /api/late/[id] METHOD: PUT -> updates
-    /api/late/[id] METHOD: DELETE -> deletes
+    ☐ /api/lates/[id] -> returns specified late
+    ☐ /api/lates/[id] METHOD: PUT -> updates
+    ☐ /api/lates/[id] METHOD: DELETE -> deletes
   ☐ Seed db on startup
   ☐ Users route
   ☐ Slugify tags or make sure they are only a single word
@@ -25,7 +25,7 @@ Next.js:
   ✔ get fallback working? @done(20-07-14 19:30)
 
 Frontend:
-  ☐ Link from lates list to individual late
+  ✔ Link from lates list to individual late @done(20-07-20 22:31)
     ✔ Route by ID? Since url is the only known property, seems safest, slugs won't work since title optional @done(20-07-14 19:30)
   ☐ Clean up styles
   ✔ Fix header rendering flash (only on FF?) @done(20-07-14 19:30)
@@ -37,10 +37,11 @@ Frontend:
     ✔ Only FF? @done(20-07-14 19:30)
   ✔ Export static paths? @done(20-07-20 21:31)
   ☐ Custom fonts
-  ☐ Format dates correctly
+  ✔ Format dates correctly @done(20-07-20 22:31)
   ✔ Move dropdown to independent component @done(20-07-20 22:31)
-
-
+  ☐ Validate urls on late create
+  ☐ lates/[id].js and tags/[title].js are hugely overcomplicated, simplify data fetching
+  ☐ Move `/lates/create` to `/admin/lates/create`
 
 Tests:
   ☐ https://github.com/drkgrntt/papyr-cms/tree/master/src/test
