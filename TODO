@@ -17,6 +17,9 @@ API:
     ☐ /api/late/[id] -> returns specified late
     ☐ /api/late/[id] METHOD: PUT -> updates
     /api/late/[id] METHOD: DELETE -> deletes
+  ☐ Seed db on startup
+  ☐ Users route
+  ☐ Slugify tags or make sure they are only a single word
 
 Next.js:
   ✔ get fallback working? @done(20-07-14 19:30)
@@ -32,7 +35,12 @@ Frontend:
     ✔ DOESN'T HAPPEN WHEN DEPLOYED @critical @done(20-07-14 19:30)
   ✔ Fix header offset height (slightly too short, when rendering header height is increased) @done(20-07-14 19:30)
     ✔ Only FF? @done(20-07-14 19:30)
-  ☐ Export static paths?
+  ✔ Export static paths? @done(20-07-20 21:31)
+  ☐ Custom fonts
+  ☐ Format dates correctly
+  ✔ Move dropdown to independent component @done(20-07-20 22:31)
+
+
 
 Tests:
   ☐ https://github.com/drkgrntt/papyr-cms/tree/master/src/test
