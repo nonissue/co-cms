@@ -5,7 +5,9 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export default async function create(req, res) {
-  const { title, url, shared, user } = await req.body;
+  const { title, url, shared, user, tags } = await req.body;
+
+  console.log(req.body);
 
   // const test = await getSession({ req });
   // const {sesh = await fetch('http://localhost:3000/api/auth/session');
@@ -24,16 +26,23 @@ export default async function create(req, res) {
       throw new Error('URL is required');
     }
 
-    // if (!ref) {
-    //   throw new Error("Error: Cannot create late. User isn't signed in.");
-    // }
-
+    // make sure tag isn't empty space before creating? As that breaks routing
     try {
       late = await prisma.late.create({
         data: {
           title: title || 'untitled',
           url,
           shared,
+          tags: {
+            connectOrCreate: tags.map((tag) => ({
+              where: {
+                title: tag,
+              },
+              create: {
+                title: tag,
+              },
+            })),
+          },
           owner: {
             connect: { email: user.email },
           },

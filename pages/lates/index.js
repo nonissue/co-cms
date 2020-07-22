@@ -37,7 +37,7 @@ function Lates({ lates }) {
                       {late.tags.map((tag) => {
                         return (
                           <li key={tag.id}>
-                            <Link href={`tags/${tag.title}`}>
+                            <Link href={`/tags/${tag.title}`}>
                               <a>{tag.title}</a>
                             </Link>
                           </li>

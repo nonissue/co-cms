@@ -13,6 +13,7 @@ function Create() {
     url: '',
     shared: false,
     error: '',
+    tags: null,
   });
 
   async function handleSubmit(event) {
@@ -22,14 +23,28 @@ function Create() {
     const title = lateData.title || 'untitled';
     const url = lateData.url;
     const shared = lateData.shared || false;
+    // If no tags are provided, set tags to empty array
+    // Otherwise, Split on space, then filter so result
+    //  so we don't create tags for submissions like " ", "1        "
+    // (Prime candidate for testing)
+    const tagsSplit =
+      lateData.tags?.split(' ').filter((tag) => tag.length > 0) || [];
 
     console.log(lateData);
 
     try {
       const response = await fetch('/api/lates/create', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, url, shared, user: session.user }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title,
+          url,
+          shared,
+          user: session.user,
+          tags: tagsSplit,
+        }),
       });
 
       if (response.status !== 200) {
@@ -41,15 +56,24 @@ function Create() {
       if (error.message === 'URL is required') {
         setLateData({
           ...lateData,
-          error: { message: error.message, field: 'URL' },
+          error: {
+            message: error.message,
+            field: 'URL',
+          },
         });
       } else if (error.message === 'Title is required') {
         setLateData({
           ...lateData,
-          error: { message: error.message, field: 'Title' },
+          error: {
+            message: error.message,
+            field: 'Title',
+          },
         });
       } else {
-        setLateData({ ...lateData, error: error.message });
+        setLateData({
+          ...lateData,
+          error: error.message,
+        });
       }
     }
   }
@@ -125,6 +149,42 @@ function Create() {
                 )}
               </div>
             </div>
+
+            <div className={styles['form-group-row']}>
+              <label htmlFor='summary'>Tags</label>
+              <div>
+                <input
+                  type='text'
+                  id='tags'
+                  name='tags'
+                  value={lateData.tags}
+                  className={`${
+                    lateData.error?.field === 'Tags' &&
+                    styles['form-invalid-input']
+                  }
+                  ${styles['create-late-input']}
+                }`}
+                  onChange={(event) =>
+                    setLateData(
+                      Object.assign({}, lateData, { tags: event.target.value })
+                    )
+                  }
+                />
+              </div>
+              <div
+                className={`${styles['form-help-text']} ${styles['form-inline-error']}`}
+              >
+                {/* show the validation error for set amount of time? */}
+                {lateData.error?.field === 'Tags' ? (
+                  <div className={`${styles['form-inline-error']}`}>
+                    Error processing tags
+                  </div>
+                ) : (
+                  'Enter tags delimited by spaces (optional)'
+                )}
+              </div>
+            </div>
+
             <div className={styles['form-group-row']}>
               <label>Shared</label>
               <div>
