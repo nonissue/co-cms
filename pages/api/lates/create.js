@@ -33,6 +33,7 @@ export default async function create(req, res) {
         data: {
           title: title || 'untitled',
           url,
+          shared,
           owner: {
             connect: { email: user.email },
           },
