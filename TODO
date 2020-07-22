@@ -45,6 +45,7 @@ Frontend:
   ☐ Admin dashboard (with useServerSideProps && auth)
   ☐ Style lates list, single late, tags list, single tag
   ✔ If dropdown action link is clicked, page scrolls back to top? @done(20-07-20 22:46) FIXED: was because the <a> was routing, should probably remove altogether
+  ☐ `/lates` is a prerendered page, but `/lates/1/` isn't? (same with tags)
 
 Tests:
   ☐ https://github.com/drkgrntt/papyr-cms/tree/master/src/test

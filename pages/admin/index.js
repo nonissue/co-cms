@@ -1,10 +1,11 @@
-import Layout from '../../components/layout';
+import AdminLayout from '../../components/admin-layout';
 
-const Admin = () => {
+const Admin = ({ user }) => {
+  console.log(user);
   return (
-    <Layout>
-      <h1>Admin Layout</h1>
-    </Layout>
+    <AdminLayout>
+      <h1>AdminLayout</h1>
+    </AdminLayout>
   );
 };
 

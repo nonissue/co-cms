@@ -28,9 +28,9 @@ export default () => {
                       <Link href='/lates/1'>
                         <a>One</a>
                       </Link>
-                      <Link href='/lates/create'>
+                      {/* <Link href='/lates/create'>
                         <a>Create +</a>
-                      </Link>
+                      </Link> */}
                     </>
                   }
                   // position='bottom'
@@ -50,9 +50,9 @@ export default () => {
                         <a>One</a>
                       </Link>
 
-                      <Link href='/tags/create'>
+                      {/* <Link href='/tags/create'>
                         <a>Create +</a>
-                      </Link>
+                      </Link> */}
                     </>
                   }
                   // position='bottom'

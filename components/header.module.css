@@ -13,11 +13,11 @@
   /* overflow: hidden; */
   padding: 2rem;
   margin: 0;
-  transition: all 0.25s ease-in-out;
+  transition: all 2.5s ease-in-out;
 }
 
 .loading {
-  top: -6rem;
+  top: -4rem;
   opacity: 0;
 }
 
