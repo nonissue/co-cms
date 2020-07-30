@@ -7,16 +7,6 @@ const prisma = new PrismaClient();
 export default async function create(req, res) {
   const { title, url, shared, user, tags } = await req.body;
 
-  console.log(req.body);
-
-  // const test = await getSession({ req });
-  // const {sesh = await fetch('http://localhost:3000/api/auth/session');
-  // console.log(sesh);
-  // console.log(test);
-  // console.log(req);
-
-  // Add user auth verification
-
   let late;
   try {
     if (!user || !user.email) {

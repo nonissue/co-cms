@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
-import { useRouter } from 'next/router';
 import Layout from '../../components/layout';
 const prisma = new PrismaClient();
+
 const Late = ({ late, loading = true, error }) => {
   if (!late) {
     if (loading) {
@@ -16,16 +16,14 @@ const Late = ({ late, loading = true, error }) => {
     );
   }
 
-  const lateResult = JSON.parse(late);
-
   return (
     <Layout>
-      {lateResult?.url ? (
+      {late?.url ? (
         <>
           <h1>Late</h1>
-          <p>Title: {lateResult?.title}</p>
-          <p>URL: {lateResult.url}</p>
-          <p>User email: {lateResult.owner.email}</p>
+          <p>Title: {late?.title}</p>
+          <p>URL: {late.url}</p>
+          <p>User email: {late.owner.email}</p>
         </>
       ) : loading ? (
         <>'Loading...'</>
@@ -49,36 +47,13 @@ export async function getStaticPaths() {
   };
 }
 
-// move this to api call that fetches late
-// then use SWR to call api?
+// use SWR here?
 export const getStaticProps = async (context) => {
-  const lateId = context.params.id - 0;
-  let lateResponse;
-
-  try {
-    lateResponse = await prisma.late.findOne({
-      where: {
-        id: lateId,
-      },
-      include: { owner: true },
-    });
-  } catch (err) {
-    throw new Error('Error: Error fetching late: ' + context.params.id);
-  }
-
-  let json;
-
-  if (lateResponse) {
-    json = await JSON.stringify(lateResponse);
-  } else {
-    return {
-      props: { late: null, loading: false, error: context.params.id },
-    };
-  }
-
-  return {
-    props: { late: json, loading: false, error: false },
-  };
+  const res = await fetch(
+    `http://localhost:3000/api/lates/${context.params.id}`
+  );
+  const data = await res.json();
+  return { props: { late: data, loading: false, error: null } };
 };
 
 export default Late;

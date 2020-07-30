@@ -9,13 +9,11 @@ function Lates({ lates }) {
     return <Layout>Loading...</Layout>;
   }
 
-  const latesList = JSON.parse(lates);
-
   return (
     <Layout>
       <div className={styles['lates-list']}>
         <h1> Lates</h1>
-        {latesList.map((late) => {
+        {lates.map((late) => {
           {
             console.log(late);
           }
@@ -32,7 +30,6 @@ function Lates({ lates }) {
                 </p>
                 {late.tags.length != [] && (
                   <div className={styles.tags}>
-                    {/* <h3>Tags</h3> */}
                     <ul>
                       {late.tags.map((tag) => {
                         return (
@@ -58,33 +55,19 @@ function Lates({ lates }) {
   );
 }
 
-// Gets all users with static props
-// Also fetches corresponding user posts
-// Converts it to JSON before returning
-
-// Does the returned array need to be json? Can we avoid converting it to JSON and then back?
-// Also, doesn't get rerendered on change online
-// export const getStaticProps = async () => {
-//   const prisma = new PrismaClient();
-//   const res = await prisma.late.findMany({ include: { owner: true } });
-//   const json = await JSON.stringify(res);
-
-//   return {
-//     props: { lates: json },
-//   };
-// };xres
-
+// Unless we initialize prisma client here, the request fails?
+// Module not found: Can't resolve 'async_hooks'
+// Weird because this isn't the case in lates/[id].js component
 export const getStaticProps = async () => {
-  const prisma = new PrismaClient();
-
-  const latesResponse = await prisma.late.findMany({
-    include: { owner: true, tags: true },
-  });
-
-  const json = await JSON.stringify(latesResponse);
-
+  const prisma = new PrismaClient(); // @BUG
+  const res = await fetch(`http://localhost:3000/api/lates`);
+  const data = await res.json();
   return {
-    props: { lates: json },
+    props: {
+      lates: data,
+      loading: false,
+      error: null,
+    },
   };
 };
 

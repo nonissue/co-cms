@@ -4,19 +4,19 @@ const prisma = new PrismaClient();
 
 const Tag = ({ data, loading = true, error }) => {
   if (!data) {
-    if (loading) {
+    if (loading && !error) {
       return <Layout>Loading...</Layout>;
     }
     return (
       <Layout>
         <h1>Error: Late not found</h1>
         <br />
-        <code>Requested id: {error ? error : 'nope'}</code>
+        <code>{error ? error : 'nope'}</code>
       </Layout>
     );
   }
 
-  const { title, lates } = JSON.parse(data);
+  const { title, lates } = data;
 
   return (
     <Layout>
@@ -41,36 +41,13 @@ export async function getStaticPaths() {
   };
 }
 
-// move this to api call that fetches late
-// then use SWR to call api?
+// use SWR here?
 export const getStaticProps = async (context) => {
-  const tagTitle = context.params.title;
-  let tagWithLates;
-
-  try {
-    tagWithLates = await prisma.tag.findOne({
-      where: {
-        title: tagTitle,
-      },
-      include: { lates: true },
-    });
-  } catch (err) {
-    throw new Error('Error: Error fetching late: ' + context.params.title);
-  }
-
-  let json;
-
-  if (tagWithLates) {
-    json = await JSON.stringify(tagWithLates);
-  } else {
-    return {
-      props: { data: null, loading: false, error: context.params.title },
-    };
-  }
-
-  return {
-    props: { data: json, loading: false, error: false },
-  };
+  const res = await fetch(
+    `http://localhost:3000/api/tags/${context.params.title}`
+  );
+  const data = await res.json();
+  return { props: { data, loading: false, error: null } };
 };
 
 export default Tag;
