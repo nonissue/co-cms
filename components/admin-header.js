@@ -17,17 +17,15 @@ const AdminHeader = () => {
       </noscript>
       <div className={`nojs-show ${styles['nav-bar-wrapper']} `}>
         <nav
-          className={`nojs-show ${
-            !session && loading ? styles.loading : styles.loaded
-          }
-          }`}
+        // className={`nojs-show
+        // ${
+        //   // !session && loading ? styles.loading : styles.loaded
+        //   'test'
+        // }
+        // }`}
         >
           <div className={styles['nav-bar-left']}>
-            <ul
-              className={`${styles.navItems} ${
-                !session && loading ? styles.loading : styles.loaded
-              }`}
-            >
+            <ul className={`${styles.navItems}`}>
               <Link href='/'>
                 <li className={styles.navItem}>
                   <a>Home</a>
