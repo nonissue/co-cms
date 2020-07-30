@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Router from 'next/router';
 import { useSession } from 'next-auth/client';
 
-import Layout from '../../../components/layout';
+import AdminLayout from '../../../components/admin-layout';
 import styles from './create.module.css';
 
 function Create() {
@@ -79,7 +79,7 @@ function Create() {
   }
 
   return (
-    <Layout>
+    <AdminLayout>
       {/* Ugly nested ternary, fix? */}
       {loading ? (
         ''
@@ -209,7 +209,7 @@ function Create() {
           </form>
         </div>
       )}
-    </Layout>
+    </AdminLayout>
   );
 }
 

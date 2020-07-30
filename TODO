@@ -41,9 +41,11 @@ Bugs:
     ☐ Doesn't seem to matter where `const prisma = new PrismaClient();` is called in `api/feed.js`
 
 Frontend:
+  ☐ Clean up styles
+  ☐ Custom fonts
+  ☐ Validate urls on late create
   ✔ Link from lates list to individual late @done(20-07-20 22:31)
     ✔ Route by ID? Since url is the only known property, seems safest, slugs won't work since title optional @done(20-07-14 19:30)
-  ☐ Clean up styles
   ✔ Fix header rendering flash (only on FF?) @done(20-07-14 19:30)
     ✔ Seems to happen on multiple pages (not just create) @done(20-07-11 22:29)
     ✔ next auth example doesn't have issue @done(20-07-11 22:29)
@@ -52,27 +54,27 @@ Frontend:
   ✔ Fix header offset height (slightly too short, when rendering header height is increased) @done(20-07-14 19:30)
     ✔ Only FF? @done(20-07-14 19:30)
   ✔ Export static paths? @done(20-07-20 21:31)
-  ☐ Custom fonts
   ✔ Format dates correctly @done(20-07-20 22:31)
   ✔ Move dropdown to independent component @done(20-07-20 22:31)
-  ☐ Validate urls on late create
-  ☐ lates/[id].js and tags/[title].js are hugely overcomplicated, simplify data fetching @started(20-07-30 15:01)
-  ☐ Move `/lates/create` to `/admin/lates/create`
+  ✔ lates/[id].js and tags/[title].js are hugely overcomplicated, simplify data fetching @started(20-07-30 15:01) @done(20-07-30 16:33) @lasted(1h32m45s)
+  ✔ Move `/lates/create` to `/admin/lates/create` @done(20-07-30 16:35)
   ☐ Admin dashboard (with useServerSideProps && auth) 
     ☐ Remove auth context provider from main route
   ☐ Style lates list, single late, tags list, single tag
   ✔ If dropdown action link is clicked, page scrolls back to top? @done(20-07-20 22:46) FIXED: was because the <a> was routing
   ☐ `/lates` is a prerendered page, but `/lates/1/` isn't? (same with tags)
   ✔ Tag input (space delimited, split into array before sending to api) @done(20-07-22 17:24)
-  ☐ make menu rendering the same between public & admin
-  ☐ Admin: clicking on profile picture shows dropdown with account options 
-  ☐ Header link hover -> pointer
+  ✔ make menu rendering the same between public & admin @done(20-07-30 16:33)
+  ✔ Admin: clicking on profile picture shows dropdown with account options @done(20-07-30 16:47)
+  ✔ Link hover cursor: @done(20-07-30 16:49) UPDATE: Fixed by just modifying dropdown so {children} are styled with :hover cursor: pointer
+    ✔ Avatar @done(20-07-30 16:49)
+    ✔ Dropdowns @done(20-07-30 16:49)
   ☐ Better form error handling
   ☐ Implement combo box for tag input 
     ☐ https://elastic.github.io/eui/#/forms/combo-box -> results get put in selectedOptions [{label: 'value'}]
       ☐ https://codesandbox.io/s/8lv12?file=/index.js
     ☐ https://evergreen.segment.com/components/tag-input
-
+  ✔ Fetch oauth user id with next auth when signing in @done(20-07-30 16:35)
   
 Someday:
   ☐ Google text processing ML to generate tags
