@@ -1,6 +1,6 @@
 /* Set min-height to avoid page reflow while session loading */
 .header {
-  min-height: 6rem;
+  /* min-height: 6rem; */
   display: block;
   width: 100%;
 }
@@ -17,7 +17,7 @@
 }
 
 .loading {
-  top: -4rem;
+  /* top: -4rem; */
   opacity: 0;
 }
 
