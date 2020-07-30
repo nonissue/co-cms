@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from './header.module.css';
 import Dropdown from './dropdown';
 
-export default () => {
+const Header = () => {
   return (
     <header className={styles.header}>
       <noscript>
@@ -21,16 +21,12 @@ export default () => {
                 <Dropdown
                   content={
                     <>
-                      {' '}
                       <Link href='/lates'>
                         <a>All</a>
                       </Link>
                       <Link href='/lates/1'>
                         <a>One</a>
                       </Link>
-                      {/* <Link href='/lates/create'>
-                        <a>Create +</a>
-                      </Link> */}
                     </>
                   }
                   // position='bottom'
@@ -49,13 +45,8 @@ export default () => {
                       <Link href='/tags/firsttag'>
                         <a>One</a>
                       </Link>
-
-                      {/* <Link href='/tags/create'>
-                        <a>Create +</a>
-                      </Link> */}
                     </>
                   }
-                  // position='bottom'
                 >
                   <a>Tags</a>
                 </Dropdown>
@@ -72,3 +63,5 @@ export default () => {
     </header>
   );
 };
+
+export default Header;
