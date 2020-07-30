@@ -44,6 +44,8 @@ Frontend:
   ☐ Clean up styles
   ☐ Custom fonts
   ☐ Validate urls on late create
+  ☐ `/lates` is a prerendered page, but `/lates/1/` isn't? (same with tags) @critical
+  ☐ change getStaticPaths so it fetches from `/api/` rather than calling prisma directly
   ✔ Link from lates list to individual late @done(20-07-20 22:31)
     ✔ Route by ID? Since url is the only known property, seems safest, slugs won't work since title optional @done(20-07-14 19:30)
   ✔ Fix header rendering flash (only on FF?) @done(20-07-14 19:30)
@@ -58,11 +60,10 @@ Frontend:
   ✔ Move dropdown to independent component @done(20-07-20 22:31)
   ✔ lates/[id].js and tags/[title].js are hugely overcomplicated, simplify data fetching @started(20-07-30 15:01) @done(20-07-30 16:33) @lasted(1h32m45s)
   ✔ Move `/lates/create` to `/admin/lates/create` @done(20-07-30 16:35)
-  ☐ Admin dashboard (with useServerSideProps && auth) 
-    ☐ Remove auth context provider from main route
+  ✔ Admin dashboard (with useServerSideProps && auth) @done(20-07-30 16:58)
+    ✔ Remove auth context provider from main route @done(20-07-30 16:58)
   ☐ Style lates list, single late, tags list, single tag
   ✔ If dropdown action link is clicked, page scrolls back to top? @done(20-07-20 22:46) FIXED: was because the <a> was routing
-  ☐ `/lates` is a prerendered page, but `/lates/1/` isn't? (same with tags)
   ✔ Tag input (space delimited, split into array before sending to api) @done(20-07-22 17:24)
   ✔ make menu rendering the same between public & admin @done(20-07-30 16:33)
   ✔ Admin: clicking on profile picture shows dropdown with account options @done(20-07-30 16:47)
@@ -75,6 +76,7 @@ Frontend:
       ☐ https://codesandbox.io/s/8lv12?file=/index.js
     ☐ https://evergreen.segment.com/components/tag-input
   ✔ Fetch oauth user id with next auth when signing in @done(20-07-30 16:35)
+  
   
 Someday:
   ☐ Google text processing ML to generate tags

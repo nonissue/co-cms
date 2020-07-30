@@ -1,4 +1,5 @@
 import { useSession, signin } from 'next-auth/client';
+import { Provider } from 'next-auth/client';
 
 import AdminHeader from '../components/admin-header';
 import Footer from '../components/footer';
