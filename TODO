@@ -35,10 +35,11 @@ Next.js:
   ✔ get fallback working? @done(20-07-14 19:30)
 
 Bugs: 
-  ☐ Prisma runtime: in `pages/lates/index.js`, unless we set initialize prisma client in `getStaticProps`, an error is fired
+  ☐ Prisma runtime: in `pages/lates/index.js`, unless we initialize prisma client in `getStaticProps`, an error is fired
     ☐ This happens even though the fetching for prisma happens in `api/feed.js`
     ☐ Doesn't seem to matter whether `api/feed.js` is ts or js
     ☐ Doesn't seem to matter where `const prisma = new PrismaClient();` is called in `api/feed.js`
+  ☐ Can't fetch in prod, as it attempts to fetch from `localhost:3000/api` @critical
 
 Frontend:
   ☐ Clean up styles

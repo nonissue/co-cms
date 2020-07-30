@@ -4,6 +4,8 @@ import Layout from '../../components/layout';
 import styles from './tags.module.css';
 
 const Tags = ({ tags }) => {
+  // console.log('Site: ' + process.env);
+  // console.log(process.env);
   if (!tags) {
     return <Layout>Loading...</Layout>;
   }
@@ -33,7 +35,8 @@ const Tags = ({ tags }) => {
 // Weird because this isn't the case in lates/[id].js component
 export const getStaticProps = async () => {
   const prisma = new PrismaClient(); // @BUG
-  const res = await fetch(`http://localhost:3000/api/tags`);
+  console.log(process.env.SITE);
+  const res = await fetch(`${process.env.SITE}/api/tags`);
   const data = await res.json();
   return {
     props: {

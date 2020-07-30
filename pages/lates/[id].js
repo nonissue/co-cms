@@ -49,9 +49,7 @@ export async function getStaticPaths() {
 
 // use SWR here?
 export const getStaticProps = async (context) => {
-  const res = await fetch(
-    `http://localhost:3000/api/lates/${context.params.id}`
-  );
+  const res = await fetch(`${process.env.SITE}/api/lates/${context.params.id}`);
   const data = await res.json();
   return { props: { late: data, loading: false, error: null } };
 };

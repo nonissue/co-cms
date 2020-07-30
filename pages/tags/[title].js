@@ -44,7 +44,7 @@ export async function getStaticPaths() {
 // use SWR here?
 export const getStaticProps = async (context) => {
   const res = await fetch(
-    `http://localhost:3000/api/tags/${context.params.title}`
+    `${process.env.SITE}/api/tags/${context.params.title}`
   );
   const data = await res.json();
   return { props: { data, loading: false, error: null } };

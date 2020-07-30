@@ -60,7 +60,7 @@ function Lates({ lates }) {
 // Weird because this isn't the case in lates/[id].js component
 export const getStaticProps = async () => {
   const prisma = new PrismaClient(); // @BUG
-  const res = await fetch(`http://localhost:3000/api/lates`);
+  const res = await fetch(`${process.env.SITE}/api/lates`);
   const data = await res.json();
   return {
     props: {
