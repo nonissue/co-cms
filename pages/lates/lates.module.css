@@ -75,8 +75,6 @@
   font-size: 0.8rem;
 }
 
-/* .lates-item .tags {
-} */
 .lates-item h3 {
   font-size: 1em;
 }
@@ -85,8 +83,6 @@
   padding: 0;
   margin: 0;
   margin-top: 0rem;
-
-  /* font-family: 'Monaco', 'Inconsolata', monospace; */
   font-size: 0.6em;
 }
 .lates-item .tags li {
@@ -96,8 +92,9 @@
 }
 .lates-item .tags a {
   color: #fff;
+  color: hsl(209, 85%, 93%);
   padding: 0;
-  font-weight: 500;
+  font-weight: 600;
   padding: 0.15em 0.5em;
   border-radius: 0.2em;
   background: hsl(209, 85%, 55%);
@@ -109,5 +106,5 @@
   background: #1070ca;
 }
 .lates-item .tags * ~ * {
-  margin-left: 0.5em;
+  margin-left: 0.3em;
 }

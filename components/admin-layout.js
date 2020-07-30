@@ -3,7 +3,7 @@ import { useSession, signin } from 'next-auth/client';
 import AdminHeader from '../components/admin-header';
 import Footer from '../components/footer';
 
-export default ({ children }) => {
+const AdminLayout = ({ children }) => {
   const [session, loading] = useSession();
 
   console.log(session);
@@ -32,3 +32,5 @@ export default ({ children }) => {
     </>
   );
 };
+
+export default AdminLayout;
