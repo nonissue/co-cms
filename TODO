@@ -8,11 +8,13 @@ https://www.codemochi.com/blog/201≤9-07-08-prisma-2-nextjs-docker
 ,,,mmmmmm≤
 
 Conceptually:
-  ☐ How do we identify users if we use an auth provider like github?
+  ✔ How do we identify users if we use an auth provider like github? @done(20-07-23 16:40)
+    ✔ Hooked into next-auth to return oauth id from github request @done(20-07-23 16:40)
+  ☐ Only access next auth provider on admin routes
   
 Tests:
   ☐ Prisma 
-    ☐ Tag creation tests,,..,,,,,
+    ☐ Tag creation tests
   ☐ Auth routes
 
 API: 
@@ -26,6 +28,8 @@ API:
   ✔ Slugify tags or make sure they are only a single word @done(20-07-22 17:24)
   ✔ Create tags from array of provided tags (space delimited) @done(20-07-22 17:24)
   ☐ Check for orphaned tags
+  ☐ Fetch Late page title from URL 
+    ☐ When? On form submission?
 
 Next.js:
   ✔ get fallback working? @done(20-07-14 19:30)
@@ -46,11 +50,12 @@ Frontend:
   ✔ Format dates correctly @done(20-07-20 22:31)
   ✔ Move dropdown to independent component @done(20-07-20 22:31)
   ☐ Validate urls on late create
-  ☐ lates/[id].js and tags/[title].js are hugely overcomplicated, simplify data fetching
+  ☐ lates/[id].js and tags/[title].js are hugely overcomplicated, simplify data fetching @started(20-07-30 15:01)
   ☐ Move `/lates/create` to `/admin/lates/create`
-  ☐ Admin dashboard (with useServerSideProps && auth)
+  ☐ Admin dashboard (with useServerSideProps && auth) 
+    ☐ Remove auth context provider from main route
   ☐ Style lates list, single late, tags list, single tag
-  ✔ If dropdown action link is clicked, page scrolls back to top? @done(20-07-20 22:46) FIXED: was because the <a> was routing, should probably remove altogether
+  ✔ If dropdown action link is clicked, page scrolls back to top? @done(20-07-20 22:46) FIXED: was because the <a> was routing
   ☐ `/lates` is a prerendered page, but `/lates/1/` isn't? (same with tags)
   ✔ Tag input (space delimited, split into array before sending to api) @done(20-07-22 17:24)
   ☐ make menu rendering the same between public & admin
@@ -63,11 +68,17 @@ Frontend:
     ☐ https://evergreen.segment.com/components/tag-input
 
   
+Someday:
+  ☐ Google text processing ML to generate tags
+  ☐ Typescript
+  ☐ Formik for forms
+  ☐ ElasticUI for dashboard
 
 Tests:
   ☐ https://github.com/drkgrntt/papyr-cms/tree/master/src/test
 
 Resources:
   ☐ https://github.com/drkgrntt/papyr-cms/blob/master/src/pages/api/posts/%5Bid%5D.js
+  ☐ https://github.com/prisma/prisma-examples/tree/master/typescript/rest-nextjs/pages/api
 
 
