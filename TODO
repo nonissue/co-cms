@@ -18,13 +18,13 @@ Tests:
   ☐ Auth routes
 
 API: 
-  ☐ Implement all crud operations
   ☐ All in [id].js?
-    ☐ /api/lates/[id] -> returns specified late
+    ✔ /api/lates/[id] -> returns specified late @done(20-07-30 16:21)
     ☐ /api/lates/[id] METHOD: PUT -> updates
     ☐ /api/lates/[id] METHOD: DELETE -> deletes
   ☐ Seed db on startup
   ☐ Users route
+  ☐ When fetching tags on `/pages/tags/index.js`, fetch count as well
   ✔ Slugify tags or make sure they are only a single word @done(20-07-22 17:24)
   ✔ Create tags from array of provided tags (space delimited) @done(20-07-22 17:24)
   ☐ Check for orphaned tags
