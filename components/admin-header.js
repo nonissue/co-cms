@@ -16,14 +16,7 @@ const AdminHeader = () => {
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
       <div className={`nojs-show ${styles['nav-bar-wrapper']} `}>
-        <nav
-        // className={`nojs-show
-        // ${
-        //   // !session && loading ? styles.loading : styles.loaded
-        //   'test'
-        // }
-        // }`}
-        >
+        <nav>
           <div className={styles['nav-bar-left']}>
             <ul className={`${styles.navItems}`}>
               <Link href='/'>
@@ -79,16 +72,39 @@ const AdminHeader = () => {
           </div>
           <div className={styles['nav-bar-right']}>
             {session ? (
-              <a
-                href={`/api/auth/signout`}
-                className={styles.button}
-                onClick={(e) => {
-                  e.preventDefault();
-                  signout();
-                }}
+              <Dropdown
+                className={styles['avatar-dropdown']}
+                content={
+                  <>
+                    <span className={styles['user-name']}>
+                      {session.user.name}
+                    </span>
+                    <Link
+                      href={`/api/auth/signout`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        signout();
+                      }}
+                    >
+                      <a>Settings</a>
+                    </Link>
+                    <a
+                      href={`/api/auth/signout`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        signout();
+                      }}
+                    >
+                      Sign out
+                    </a>
+                  </>
+                }
               >
-                Sign out
-              </a>
+                <span
+                  style={{ backgroundImage: `url(${session.user.image})` }}
+                  className={`${styles.avatar}`}
+                />
+              </Dropdown>
             ) : loading ? (
               ''
             ) : (
@@ -102,14 +118,6 @@ const AdminHeader = () => {
               >
                 Sign in
               </a>
-            )}
-            {session ? (
-              <span
-                style={{ backgroundImage: `url(${session.user.image})` }}
-                className={`${styles.avatar}`}
-              />
-            ) : (
-              ''
             )}
           </div>
         </nav>

@@ -43,6 +43,16 @@
   border: 1px solid rgba(67, 90, 111, 0.3);
 }
 
+.user-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 2rem;
+}
+/* }
+.avatar-dropdown a {
+  margin-left: 0;
+} */
+
 .button,
 .buttonPrimary {
   font-weight: 500;
@@ -115,7 +125,7 @@
   align-items: center;
 }
 
-.nav-bar-right * ~ * {
+.nav-bar-right > * ~ * {
   margin-left: 2rem;
 }
 

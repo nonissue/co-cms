@@ -64,7 +64,12 @@ const Dropdown = ({ content, position, children }) => {
       ref={node}
       onClick={() => setVisible(!isVisible)}
     >
-      <div data-testid='dropdown-placeholder'>{children}</div>
+      <div
+        data-testid='dropdown-placeholder'
+        className={styles['dropdown-placeholder']}
+      >
+        {children}
+      </div>
       {isVisible && (
         <div
           className={styles['dropdown-content']}

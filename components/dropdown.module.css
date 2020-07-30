@@ -1,6 +1,9 @@
 /* .dropdown-container {
   position: absolute;
 } */
+.dropdown-placeholder:hover {
+  cursor: pointer;
+}
 
 .dropdown-content {
   background: white;
