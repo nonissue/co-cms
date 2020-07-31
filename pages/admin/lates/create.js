@@ -13,7 +13,7 @@ function Create() {
     url: '',
     shared: false,
     error: '',
-    tags: null,
+    tags: [],
   });
 
   async function handleSubmit(event) {
@@ -31,6 +31,7 @@ function Create() {
       lateData.tags?.split(' ').filter((tag) => tag.length > 0) || [];
 
     console.log(lateData);
+    console.log(session.user);
 
     try {
       const response = await fetch('/api/lates/create', {
@@ -151,7 +152,7 @@ function Create() {
             </div>
 
             <div className={styles['form-group-row']}>
-              <label htmlFor='summary'>Tags</label>
+              <label htmlFor='tags'>Tags</label>
               <div>
                 <input
                   type='text'

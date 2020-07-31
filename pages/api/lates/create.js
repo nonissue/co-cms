@@ -9,7 +9,7 @@ title: string
 url: string
 shared: boolean
 user: object
-tags: String[]
+tags: String
 */
 export default async function create(req, res) {
   const { title, url, shared, user, tags } = await req.body;
@@ -22,6 +22,8 @@ export default async function create(req, res) {
     if (!url) {
       throw new Error('URL is required');
     }
+
+    console.log(req);
 
     // make sure tag isn't empty space before creating? As that breaks routing
     try {
@@ -47,7 +49,7 @@ export default async function create(req, res) {
       });
       console.log(late);
     } catch (err) {
-      console.err('create-late error', err);
+      console.log('create-late error', err);
       throw new Error('Other error');
     }
 
@@ -55,6 +57,7 @@ export default async function create(req, res) {
 
     res.status(200).end();
   } catch (err) {
+    console.log(err);
     res.status(400).send(err.message);
   }
 }

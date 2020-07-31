@@ -22,3 +22,8 @@
     - Had to add `css-media-vars.css` to public folder, then import in `<Head>` to prevent minification from mangling the empty css vars
 - Sometimes 'lates' nav item shifts to the left and then back? No idea what's going on. Can't reliably reproduce.
   - Could be related to the css that controls header loading in?
+
+## 2020-07-31:
+
+- Updating prisma to 2.3 seems to break `/api/lates/create` (specifically the connectOrCreate loop for tags)
+  - Not sure why, might open a bug
