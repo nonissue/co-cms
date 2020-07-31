@@ -16,19 +16,19 @@ const Late = ({ late, loading = true, error }) => {
     );
   }
 
+  const lateResult = JSON.parse(late);
+
   return (
     <Layout>
-      {late?.url ? (
+      {lateResult?.url ? (
         <>
           <h1>Late</h1>
-          <p>Title: {late?.title}</p>
-          <p>URL: {late.url}</p>
-          <p>User email: {late.owner.email}</p>
+          <p>Title: {lateResult?.title}</p>
+          <p>URL: {lateResult.url}</p>
+          <p>User email: {lateResult.owner.email}</p>
         </>
-      ) : loading ? (
-        <>'Loading...'</>
       ) : (
-        <>Error: Late not found / Loading: {loading}</>
+        <div>Loading...</div>
       )}
     </Layout>
   );
@@ -47,11 +47,46 @@ export async function getStaticPaths() {
   };
 }
 
-// use SWR here?
+// // use SWR here?
+// export const getStaticProps = async (context) => {
+//   // const res = await fetch(`${process.env.SITE}/api/lates/${context.params.id}`);
+//   // const data = await res.json();
+
+//   const late = await prisma.late.findOne({
+//     where: { id: context.params.id - 0 },
+//     include: { owner: true },
+//   });
+//   const lateJSON = await JSON.stringify(late);
+//   return { props: { late: lateJSON, loading: false, error: null } };
+// };
 export const getStaticProps = async (context) => {
-  const res = await fetch(`${process.env.SITE}/api/lates/${context.params.id}`);
-  const data = await res.json();
-  return { props: { late: data, loading: false, error: null } };
+  const lateId = context.params.id - 0;
+  let lateResponse;
+
+  try {
+    lateResponse = await prisma.late.findOne({
+      where: {
+        id: lateId,
+      },
+      include: { owner: true },
+    });
+  } catch (err) {
+    throw new Error('Error: Error fetching late: ' + context.params.id);
+  }
+
+  let json;
+
+  if (lateResponse) {
+    json = await JSON.stringify(lateResponse);
+  } else {
+    return {
+      props: { late: null, loading: false, error: context.params.id },
+    };
+  }
+
+  return {
+    props: { late: json, loading: false, error: false },
+  };
 };
 
 export default Late;

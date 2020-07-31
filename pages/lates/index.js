@@ -9,11 +9,13 @@ function Lates({ lates }) {
     return <Layout>Loading...</Layout>;
   }
 
+  const latesRes = JSON.parse(lates);
+
   return (
     <Layout>
       <div className={styles['lates-list']}>
         <h1> Lates</h1>
-        {lates.map((late) => {
+        {latesRes.map((late) => {
           {
             console.log(late);
           }
@@ -58,16 +60,29 @@ function Lates({ lates }) {
 // Unless we initialize prisma client here, the request fails?
 // Module not found: Can't resolve 'async_hooks'
 // Weird because this isn't the case in lates/[id].js component
+// export const getStaticProps = async () => {
+//   const prisma = new PrismaClient(); // @BUG
+//   const res = await fetch(`${process.env.SITE}/api/lates`);
+//   const data = await res.json();
+//   return {
+//     props: {
+//       lates: data,
+//       loading: false,
+//       error: null,
+//     },
+//   };
+// };
 export const getStaticProps = async () => {
-  const prisma = new PrismaClient(); // @BUG
-  const res = await fetch(`${process.env.SITE}/api/lates`);
-  const data = await res.json();
+  const prisma = new PrismaClient();
+
+  const latesResponse = await prisma.late.findMany({
+    include: { owner: true, tags: true },
+  });
+
+  const json = await JSON.stringify(latesResponse);
+
   return {
-    props: {
-      lates: data,
-      loading: false,
-      error: null,
-    },
+    props: { lates: json },
   };
 };
 

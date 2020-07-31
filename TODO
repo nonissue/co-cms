@@ -40,6 +40,7 @@ Bugs:
     ☐ Doesn't seem to matter whether `api/feed.js` is ts or js
     ☐ Doesn't seem to matter where `const prisma = new PrismaClient();` is called in `api/feed.js`
   ☐ Can't fetch in prod, as it attempts to fetch from `localhost:3000/api` @critical
+    ☐ So use `process.env.SITE` in fetch request
 
 Frontend:
   ☐ Clean up styles

@@ -16,7 +16,7 @@ const Tag = ({ data, loading = true, error }) => {
     );
   }
 
-  const { title, lates } = data;
+  const { title, lates } = JSON.parse(data);
 
   return (
     <Layout>
@@ -42,12 +42,42 @@ export async function getStaticPaths() {
 }
 
 // use SWR here?
+// export const getStaticProps = async (context) => {
+//   const res = await fetch(
+//     `${process.env.SITE}/api/tags/${context.params.title}`
+//   );
+//   const data = await res.json();
+//   return { props: { data, loading: false, error: null } };
+// };
+
 export const getStaticProps = async (context) => {
-  const res = await fetch(
-    `${process.env.SITE}/api/tags/${context.params.title}`
-  );
-  const data = await res.json();
-  return { props: { data, loading: false, error: null } };
+  const tagTitle = context.params.title;
+  let tagWithLates;
+
+  try {
+    tagWithLates = await prisma.tag.findOne({
+      where: {
+        title: tagTitle,
+      },
+      include: { lates: true },
+    });
+  } catch (err) {
+    throw new Error('Error: Error fetching late: ' + context.params.title);
+  }
+
+  let json;
+
+  if (tagWithLates) {
+    json = await JSON.stringify(tagWithLates);
+  } else {
+    return {
+      props: { data: null, loading: false, error: context.params.title },
+    };
+  }
+
+  return {
+    props: { data: json, loading: false, error: false },
+  };
 };
 
 export default Tag;
