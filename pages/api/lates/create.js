@@ -4,6 +4,13 @@ import { PrismaClient } from '@prisma/client';
 // I think if it's defined outside of scope of function, it can be cached?
 const prisma = new PrismaClient();
 
+/*
+title: string
+url: string
+shared: boolean
+user: object
+tags: String[]
+*/
 export default async function create(req, res) {
   const { title, url, shared, user, tags } = await req.body;
 

@@ -1,38 +1,41 @@
-https://leerob.io/blog/next-prisma
-https://www.youtube.com/watch?v=wk-dUsLUADg
-
-https://github.com/vercel/next.js/discussions/10724
-https://github.com/vercel/next.js/discussions/14564
-
-https://www.codemochi.com/blog/201≤9-07-08-prisma-2-nextjs-docker
-,,,mmmmmm≤
+Collate CMS:
 
 Conceptually:
   ✔ How do we identify users if we use an auth provider like github? @done(20-07-23 16:40)
     ✔ Hooked into next-auth to return oauth id from github request @done(20-07-23 16:40)
-  ☐ Only access next auth provider on admin routes
-  
+  ✔ Only access next auth provider on admin routes @done(20-07-30 23:44)
+  ☐ Use project structure as a skeleton/starter for other projects, like nonissue.org
+    - Projects all use prisma for data layer
+    - Next.js for frontend
+    - Simple cms with easy to scaffold CRUD frontends
+    - Longterm: great image processing a la gatsby image
+
 Tests:
+  ☐ https://github.com/drkgrntt/papyr-cms/tree/master/src/test
   ☐ Prisma 
-    ☐ Tag creation tests
+    ☐ Tag creation tests (eg. " " doesn't end up causing the creation of two tags with '' as the title, etc)
   ☐ Auth routes
+  ☐ Test api methods:
+    ☐ Create, Update, Etc.
 
 API: 
-  ☐ All in [id].js?
+  ✔ All in [id].js? @done(20-07-31 00:00)
     ✔ /api/lates/[id] -> returns specified late @done(20-07-30 16:21)
-    ☐ /api/lates/[id] METHOD: PUT -> updates
-    ☐ /api/lates/[id] METHOD: DELETE -> deletes
+    ✔ /api/lates/[id] METHOD: PUT -> updates @done(20-07-31 00:00) UPDATE: API method works (tested in insomnia)
+    ✔ /api/lates/[id] METHOD: DELETE -> deletes @done(20-07-30 23:44)
   ☐ Seed db on startup
   ☐ Users route
   ☐ When fetching tags on `/pages/tags/index.js`, fetch count as well
+  ☐ Fetch (scrape?) Late page title from URL 
+    ☐ When? On form submission?
   ✔ Slugify tags or make sure they are only a single word @done(20-07-22 17:24)
   ✔ Create tags from array of provided tags (space delimited) @done(20-07-22 17:24)
-  ☐ Check for orphaned tags
-  ☐ Fetch Late page title from URL 
-    ☐ When? On form submission?
 
 Next.js:
   ✔ get fallback working? @done(20-07-14 19:30)
+
+Typescript Migration:
+  ☐ `api/lates/create.js` is ripe for migration
 
 Bugs: 
   ☐ Prisma runtime: in `pages/lates/index.js`, unless we initialize prisma client in `getStaticProps`, an error is fired
@@ -43,14 +46,21 @@ Bugs:
     ☐ So use `process.env.SITE` in fetch request
 
 Frontend:
-  ☐ Clean up styles
-  ☐ Custom fonts
+  ✔ Clean up styles @done(20-07-30 23:50)
   ☐ Validate urls on late create
   ☐ `/lates` is a prerendered page, but `/lates/1/` isn't? (same with tags) @critical
   ☐ Figure out how to make api calls when deployed to prod @critical (fetch has issues)
   ☐ change getStaticPaths so it fetches from `/api/` rather than calling prisma directly
   ☐ Dropdown confined to viewport/container
   ☐ Implement css transitions a la: https://codesandbox.io/s/css-modules-csstransition-0y34s
+  ☐ Better form error handling
+    ☐ For forms (handled with the implementation of formik)
+    ☐ For api calls (where to surface error to user, how to log, etc)
+  ☐ Implement combo box for tag input 
+    ☐ https://elastic.github.io/eui/#/forms/combo-box -> results get put in selectedOptions [{label: 'value'}]
+      ☐ https://codesandbox.io/s/8lv12?file=/index.js
+    ☐ https://evergreen.segment.com/components/tag-input
+  ☐ Style lates list, single late, tags list, single tag
   ✔ Link from lates list to individual late @done(20-07-20 22:31)
     ✔ Route by ID? Since url is the only known property, seems safest, slugs won't work since title optional @done(20-07-14 19:30)
   ✔ Fix header rendering flash (only on FF?) @done(20-07-14 19:30)
@@ -67,7 +77,6 @@ Frontend:
   ✔ Move `/lates/create` to `/admin/lates/create` @done(20-07-30 16:35)
   ✔ Admin dashboard (with useServerSideProps && auth) @done(20-07-30 16:58)
     ✔ Remove auth context provider from main route @done(20-07-30 16:58)
-  ☐ Style lates list, single late, tags list, single tag
   ✔ If dropdown action link is clicked, page scrolls back to top? @done(20-07-20 22:46) FIXED: was because the <a> was routing
   ✔ Tag input (space delimited, split into array before sending to api) @done(20-07-22 17:24)
   ✔ make menu rendering the same between public & admin @done(20-07-30 16:33)
@@ -75,26 +84,27 @@ Frontend:
   ✔ Link hover cursor: @done(20-07-30 16:49) UPDATE: Fixed by just modifying dropdown so {children} are styled with :hover cursor: pointer
     ✔ Avatar @done(20-07-30 16:49)
     ✔ Dropdowns @done(20-07-30 16:49)
-  ☐ Better form error handling
-  ☐ Implement combo box for tag input 
-    ☐ https://elastic.github.io/eui/#/forms/combo-box -> results get put in selectedOptions [{label: 'value'}]
-      ☐ https://codesandbox.io/s/8lv12?file=/index.js
-    ☐ https://evergreen.segment.com/components/tag-input
   ✔ Fetch oauth user id with next auth when signing in @done(20-07-30 16:35)
   
   
 Someday:
   ☐ Google text processing ML to generate tags
-  ☐ Typescript
+  ☐ Typescript @started(20-07-30 23:44) Started implementing some comments in TS
   ☐ Formik for forms
     ☐ https://codesandbox.io/s/formik-12x-building-input-primitives-sui14?file=/index.js
   ☐ ElasticUI for dashboard
+  ☐ Custom fonts
+  ☐ Check for orphaned tags
 
-Tests:
-  ☐ https://github.com/drkgrntt/papyr-cms/tree/master/src/test
+
 
 Resources:
   ☐ https://github.com/drkgrntt/papyr-cms/blob/master/src/pages/api/posts/%5Bid%5D.js
   ☐ https://github.com/prisma/prisma-examples/tree/master/typescript/rest-nextjs/pages/api
+  ☐ https://leerob.io/blog/next-prisma
+  ☐ https://www.youtube.com/watch?v=wk-dUsLUADg
+  ☐ https://github.com/vercel/next.js/discussions/10724
+  ☐ https://github.com/vercel/next.js/discussions/14564
+  ☐ https://www.codemochi.com/blog/201≤9-07-08-prisma-2-nextjs-docker
 
 

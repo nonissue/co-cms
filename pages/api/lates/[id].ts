@@ -38,6 +38,7 @@ async function handlePUT(lateId: number, data: any, res: NextApiResponse) {
   // look here: https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/relation-queries/#update-an-existing-user-record-by-updating-two-post-records-its-connected-to
   // https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/relation-queries#update-an-existing-user-record-by-disconnecting-any-previous-post-records-and-connect-two-other-exiting-ones
   // use set?
+  // another url: https://github.com/prisma/prisma-client-js/issues/764
   // ah okay, so set does replace whatever tags already
   const tags = ['newtag', 'hardcoded'];
   const late = await prisma.late.update({
