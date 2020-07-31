@@ -79,13 +79,7 @@ const AdminHeader = () => {
                     <span className={styles['user-name']}>
                       {session.user.name}
                     </span>
-                    <Link
-                      href={`/api/auth/signout`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        signout();
-                      }}
-                    >
+                    <Link href={`/admin/settings`}>
                       <a>Settings</a>
                     </Link>
                     <a

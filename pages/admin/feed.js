@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
-import Layout from '../../components/layout';
+import AdminLayout from '../../components/admin-layout';
 import Date from '../../components/date';
-import styles from './lates.module.css';
+import styles from './feed.module.css';
 
 function Lates({ lates }) {
   if (!lates) {
@@ -12,7 +12,7 @@ function Lates({ lates }) {
   const latesRes = JSON.parse(lates);
 
   return (
-    <Layout>
+    <AdminLayout>
       <div className={styles['lates-list']}>
         <h1> Lates</h1>
         {latesRes.map((late) => {
@@ -23,7 +23,7 @@ function Lates({ lates }) {
             <div className={styles['lates-item']} key={late.id}>
               <div>
                 <h1>
-                  <Link href={`/lates/${late.id}`}>
+                  <Link href={`/admin/lates/${late.id}`}>
                     <a>{late.title}</a>
                   </Link>
                 </h1>
@@ -36,7 +36,7 @@ function Lates({ lates }) {
                       {late.tags.map((tag) => {
                         return (
                           <li key={tag.id}>
-                            <Link href={`/tags/${tag.title}`}>
+                            <Link href={`/admin/tags/${tag.title}`}>
                               <a>{tag.title}</a>
                             </Link>
                           </li>
@@ -55,7 +55,7 @@ function Lates({ lates }) {
           );
         })}
       </div>
-    </Layout>
+    </AdminLayout>
   );
 }
 
