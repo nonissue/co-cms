@@ -41,7 +41,8 @@ async function handlePUT(lateId: number, data: any, res: NextApiResponse) {
   // another url: https://github.com/prisma/prisma-client-js/issues/764
   // ah okay, so set does replace whatever tags already
   // could also be an issue with prisma 2.3, broke my /api/lates/create function as well
-  const tags = ['newtag', 'hardcoded'];
+  // const tags = ['newtag', 'hardcoded'];
+  const tags = data.body.tags || [];
   const late = await prisma.late.update({
     where: {
       id: Number(lateId),
@@ -55,10 +56,20 @@ async function handlePUT(lateId: number, data: any, res: NextApiResponse) {
       // tags: {
       //   set: [
       //     {
-      //       title: 'tagtwo',
+      //       title: 'dev',
       //     },
       //   ],
       // },
+      tags: {
+        connectOrCreate: tags.map((tag: string) => ({
+          where: {
+            title: tag,
+          },
+          create: {
+            title: tag,
+          },
+        })),
+      },
     },
   });
   res.json(late);

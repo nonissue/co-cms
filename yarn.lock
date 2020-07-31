@@ -1026,15 +1026,15 @@
   resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-9.5.1.tgz#fe257fafe1a7f1c0c6e818017fa65b5ee45c5eca"
   integrity sha512-A19z/E6f08RXfBRc2STQ+5qo7iSPif7mNcww9dZAVli3Idu4umGP5dbpL71Hz1vyRs1eMUEylXTpXsY2WzY07g==
 
-"@prisma/cli@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@prisma/cli/-/cli-2.2.2.tgz#9689483442277523b5724abdafde69f15b8279f0"
-  integrity sha512-pk18QyfTHsAGctqoBu4pd9k/pAJ+uaD5GfrAE1gZkGuhmUGjh2hXmgJEKeQK+n1J4fvcstmDi38oHwskYyBv9w==
+"@prisma/cli@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@prisma/cli/-/cli-2.3.0.tgz#ddc89de63c2fcb88199fdd1b490a7616a2d32de1"
+  integrity sha512-S84VeeUR3I2Z1fkBh3x42KmVyFgiX4USzIN5N5EDyoWC8BSlMVs2eHeLlhHOtx68sDz5oNo/YEIM2bkU8cUZKA==
 
-"@prisma/client@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.2.0.tgz#be390658688702a5980b2c8eec673e5a20d90e36"
-  integrity sha512-i7zcVEtMk3QCPCc/oC+vQG2pyXYWWzhPZ11bBxgULo0gL7C/3GPZvAvAkNxpQ0mmt46EdzvpgEBNbg4VdjiR+Q==
+"@prisma/client@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.3.0.tgz#3979d973e0eececad5387c791aa1dd63316fc690"
+  integrity sha512-mlXV/VdOKjEEoZPOmFOy7KJPecYGV5XSVXGsti0F1kkShpGcMvhPkpKhNOwIb/8muUTeN5NoNqEGqKDD5XKw3w==
   dependencies:
     pkg-up "^3.1.0"
 

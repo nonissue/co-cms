@@ -23,8 +23,6 @@ export default async function create(req, res) {
       throw new Error('URL is required');
     }
 
-    console.log(req);
-
     // make sure tag isn't empty space before creating? As that breaks routing
     try {
       late = await prisma.late.create({

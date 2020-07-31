@@ -4,8 +4,8 @@ datasource db {
 }
 
 generator client {
-  provider             = "prisma-client-js"
-  experimentalFeatures = ["connectOrCreate"]
+  provider        = "prisma-client-js"
+  previewFeatures = ["connectOrCreate"]
 }
 
 model Post {
