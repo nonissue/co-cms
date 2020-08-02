@@ -94,6 +94,7 @@ Someday:
   ☐ Typescript @started(20-07-30 23:44) Started implementing some comments in TS
   ☐ Formik for forms
     ☐ https://codesandbox.io/s/formik-12x-building-input-primitives-sui14?file=/index.js
+    ☐ OR https://github.com/react-hook-form/react-hook-form
   ☐ ElasticUI for dashboard
   ☐ Custom fonts
   ☐ Check for orphaned tags

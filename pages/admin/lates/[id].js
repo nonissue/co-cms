@@ -38,7 +38,7 @@ const Late = ({ late, loading = true, error }) => {
               const res = await fetch(`/api/lates/${lateResult.id}`, {
                 method: 'DELETE',
               });
-              console.log(res);
+
               Router.push('/admin');
             }}
           >

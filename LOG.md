@@ -28,3 +28,7 @@
 - Updating prisma to 2.3 seems to break `/api/lates/create` (specifically the connectOrCreate loop for tags)
   - Not sure why, might open a bug
   - Oops, wrong commit msg
+
+## 2020-08-01
+
+- `async_hooks` error in prisma-client runtime was because I misspelled `getServerSideProps`

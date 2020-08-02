@@ -17,7 +17,7 @@ function Lates({ lates }) {
         <h1> Lates</h1>
         {latesRes.map((late) => {
           {
-            console.log(late);
+            // console.log(late);
           }
           return (
             <div className={styles['lates-item']} key={late.id}>
@@ -74,7 +74,7 @@ function Lates({ lates }) {
 //     },
 //   };
 // };
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const prisma = new PrismaClient();
 
   const latesResponse = await prisma.late.findMany({
