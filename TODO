@@ -30,6 +30,8 @@ API:
     ☐ When? On form submission?
   ✔ Slugify tags or make sure they are only a single word @done(20-07-22 17:24)
   ✔ Create tags from array of provided tags (space delimited) @done(20-07-22 17:24)
+  ☐ "In addition to friendly URLs, resources that can be moved or be renamed SHOULD expose a URL that contains a unique stable identifier. It MAY be necessary to interact with the service to obtain a stable URL from the friendly name for the resource, as in the case of the "/my" shortcut used by some services."
+    - Aka: if a tag is renamed, will that cause problems with routing?
 
 Next.js:
   ✔ get fallback working? @done(20-07-14 19:30)
@@ -96,8 +98,6 @@ Someday:
   ☐ Custom fonts
   ☐ Check for orphaned tags
 
-
-
 Resources:
   ☐ https://github.com/drkgrntt/papyr-cms/blob/master/src/pages/api/posts/%5Bid%5D.js
   ☐ https://github.com/prisma/prisma-examples/tree/master/typescript/rest-nextjs/pages/api
@@ -106,5 +106,6 @@ Resources:
   ☐ https://github.com/vercel/next.js/discussions/10724
   ☐ https://github.com/vercel/next.js/discussions/14564
   ☐ https://www.codemochi.com/blog/201≤9-07-08-prisma-2-nextjs-docker
+  ☐ https://github.com/microsoft/api-guidelines @critical
 
 

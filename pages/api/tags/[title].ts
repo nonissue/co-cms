@@ -30,7 +30,6 @@ async function handleGET(tagTitle: string, res: NextApiResponse) {
     include: { lates: true },
   });
 
-  console.log(tag);
   res.status(200).json(tag);
 }
 

@@ -7,8 +7,6 @@ import Footer from '../components/footer';
 const AdminLayout = ({ children }) => {
   const [session, loading] = useSession();
 
-  console.log(session);
-
   return (
     <>
       <AdminHeader />
