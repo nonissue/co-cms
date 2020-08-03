@@ -30,11 +30,16 @@ API:
     ☐ When? On form submission?
   ✔ Slugify tags or make sure they are only a single word @done(20-07-22 17:24)
   ✔ Create tags from array of provided tags (space delimited) @done(20-07-22 17:24)
-  ☐ "In addition to friendly URLs, resources that can be moved or be renamed SHOULD expose a URL that contains a unique stable identifier. It MAY be necessary to interact with the service to obtain a stable URL from the friendly name for the resource, as in the case of the "/my" shortcut used by some services."
-    - Aka: if a tag is renamed, will that cause problems with routing?
+  ☐ "In addition to friendly URLs, resources that can be moved or be renamed SHOULD expose a URL that contains a unique stable identifier. 
+    ☐ It MAY be necessary to interact with the service to obtain a stable URL from the friendly name for the resource, as in the case of the "/my" shortcut used by some services."
+    ☐  Aka: if a tag is renamed, will that cause problems with routing?
 
 Next.js:
   ✔ get fallback working? @done(20-07-14 19:30)
+  ☐ Fetching in component vs pre-rendering: https://nextjs.org/docs/basic-features/data-fetching#fetching-data-on-the-client-side
+    ☐ "This approach works well for user dashboard pages, for example. Because a dashboard is a private, user-specific page, SEO is not relevant and the page doesn’t need to be pre-rendered. 
+    ☐ The data is frequently updated, which requires request-time data fetching."
+
 
 Typescript Migration:
   ☐ `api/lates/create.js` is ripe for migration
@@ -50,6 +55,7 @@ Bugs:
 Frontend:
   ✔ Clean up styles @done(20-07-30 23:50)
   ☐ Validate urls on late create
+  ☐ Change admin data fetching to plain client side fetches (don't need SEO)
   ☐ `/lates` is a prerendered page, but `/lates/1/` isn't? (same with tags) @critical
   ☐ Figure out how to make api calls when deployed to prod @critical (fetch has issues)
   ☐ change getStaticPaths so it fetches from `/api/` rather than calling prisma directly
