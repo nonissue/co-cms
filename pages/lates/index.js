@@ -76,6 +76,7 @@ export const getStaticProps = async () => {
 
   const latesResponse = await prisma.late.findMany({
     include: { owner: true, tags: true },
+    orderBy: { createdAt: 'desc' },
   });
 
   const json = await JSON.stringify(latesResponse);

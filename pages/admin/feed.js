@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
+import { Collapse, Text } from '@zeit-ui/react';
 import AdminLayout from '../../components/admin-layout';
 import Date from '../../components/date';
 import styles from './feed.module.css';
@@ -15,10 +16,17 @@ function Lates({ lates }) {
     <AdminLayout>
       <div className={styles['lates-list']}>
         <h1> Lates</h1>
+        <Collapse.Group>
+          {latesRes.map((late) => (
+            <Collapse title={late.title} subtitle={late.url}>
+              <Text>
+                — by {late.owner.name} on <Date dateString={late.createdAt} />
+              </Text>
+              y
+            </Collapse>
+          ))}
+        </Collapse.Group>
         {latesRes.map((late) => {
-          {
-            // console.log(late);
-          }
           return (
             <div className={styles['lates-item']} key={late.id}>
               <div>
@@ -79,6 +87,7 @@ export const getServerSideProps = async () => {
 
   const latesResponse = await prisma.late.findMany({
     include: { owner: true, tags: true },
+    orderBy: { createdAt: 'desc' },
   });
 
   const json = await JSON.stringify(latesResponse);

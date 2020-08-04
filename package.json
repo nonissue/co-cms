@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@prisma/client": "^2.3.0",
+    "@zeit-ui/react": "^1.8.0-canary.8",
     "css-media-vars": "^1.0.1",
     "date-fns": "^2.15.0",
     "dotenv": "^8.2.0",
