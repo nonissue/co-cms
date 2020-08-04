@@ -1,4 +1,5 @@
 import { Provider } from 'next-auth/client';
+import { ZeitProvider, CssBaseline } from '@zeit-ui/react';
 import './styles.css';
 
 const App = ({ Component, pageProps }) => {
@@ -7,7 +8,11 @@ const App = ({ Component, pageProps }) => {
     // <Provider
     //   session={session}
     // >
+    // <ZeitProvider>
+    // <CssBaseline />
     <Component {...pageProps} />
+    // </ZeitProvider>
+
     // </Provider>
   );
 };

@@ -1,7 +1,6 @@
 import { useSession, signin } from 'next-auth/client';
 import { Provider } from 'next-auth/client';
-
-import { ThemeProvider, CSSReset, Spinner } from '@chakra-ui/core';
+import { Button } from '@zeit-ui/react';
 import AdminHeader from '../components/admin-header';
 import Footer from '../components/footer';
 
@@ -9,10 +8,9 @@ const AdminLayout = ({ children }) => {
   const [session, loading] = useSession();
 
   return (
-    <ThemeProvider>
-      {/* <CSSReset /> */}
+    <>
       <AdminHeader />
-      <Spinner />
+      <Button>Click Me</Button>
       <div>
         {session ? (
           <main>{children}</main>
@@ -34,7 +32,7 @@ const AdminLayout = ({ children }) => {
         <AdminHeader />
         <Footer />
       </div>
-    </ThemeProvider>
+    </>
   );
 };
 
